@@ -40,11 +40,11 @@ export default function CTABanner() {
                 />
               </div>
               <div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-1">
+                <h3 className="font-display text-xl font-bold text-foreground mb-1 tracking-tight">
                   {option.title}
                 </h3>
-                <p className="text-muted-foreground mb-3">{option.description}</p>
-                <span className="text-primary font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                <p className="text-muted-foreground mb-3 font-light text-sm">{option.description}</p>
+                <span className="text-primary font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all tracking-wide">
                   {option.cta}
                   <Icon name="ArrowRightIcon" size={16} />
                 </span>
@@ -71,7 +71,7 @@ export default function CTABanner() {
                 size={24}
                 className="text-muted-foreground group-hover:text-primary transition-colors"
               />
-              <span className="text-sm font-medium text-foreground">
+              <span className="text-sm font-semibold text-foreground tracking-wide">
                 {link.label}
               </span>
             </Link>

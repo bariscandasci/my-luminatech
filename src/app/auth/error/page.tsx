@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import AppLogo from '@/components/ui/AppLogo'
+import Link from 'next/link';
+import AppLogo from '@/components/ui/AppLogo';
 
 export default async function AuthErrorPage({
   searchParams,

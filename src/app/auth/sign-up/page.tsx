@@ -1,11 +1,10 @@
-'use client'
-
-import { createClient } from '@/lib/supabase/client'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import AppLogo from '@/components/ui/AppLogo'
-import type { Provider } from '@supabase/supabase-js'
+'use client';
+import { createClient } from '@/lib/supabase/client';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import AppLogo from '@/components/ui/AppLogo';
+import type { Provider } from '@supabase/supabase-js';
 
 const socialProviders: { name: string; provider: Provider; bgClass: string }[] = [
   { name: 'Google', provider: 'google', bgClass: 'hover:bg-red-500/10 hover:border-red-500/50' },

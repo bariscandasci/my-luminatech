@@ -1,10 +1,9 @@
-'use client'
-
-import { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { createClient } from '@/lib/supabase/client'
-import type { User } from '@supabase/supabase-js'
-import Icon from '@/components/ui/AppIcon'
+'use client';
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
+import type { User } from '@supabase/supabase-js';
+import Icon from '@/components/ui/AppIcon';
 
 export default function UserMenu() {
   const [user, setUser] = useState<User | null>(null)

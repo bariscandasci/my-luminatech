@@ -1,4 +1,5 @@
-"use client"; // Next.js kullanıyorsanız bu satır şart, React ise silebilirsiniz.
+"use client";
+; // Next.js kullanıyorsanız bu satır şart, React ise silebilirsiniz.
 
 import React, { useEffect, useRef, useState } from 'react';
 import * as faceapi from 'face-api.js';
