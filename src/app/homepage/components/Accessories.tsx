@@ -120,13 +120,13 @@ function AccessoryCard({ accessory }: {accessory: (typeof accessories)[0];}) {
           </p>
           <button
             onClick={handleAdd}
-            className={`w-full py-2 px-4 rounded-full text-[12px] font-medium transition-all duration-300 ${
+            className={`w-full py-2.5 px-4 rounded-full text-[12px] font-semibold tracking-wide transition-all duration-300 active:scale-95 ${
             added ?
             "bg-[#34c759] text-white" :
-            "bg-[#0071e3] text-white hover:bg-[#0077ed]"}`
+            "bg-[#0071e3] text-white hover:bg-[#0077ed] hover:shadow-md hover:shadow-[#0071e3]/25"}`
             }>
 
-            {added ? "Eklendi" : "Sepete Ekle"}
+            {added ? "✓ Eklendi" : "Sepete Ekle"}
           </button>
         </div>
       </div>
