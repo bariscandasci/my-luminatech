@@ -6,376 +6,449 @@ import { useCart } from "@/context/CartContext";
 
 const allProducts = [
 {
-  id: "aura-wristband-pro",
-  name: "Aura Wristband Pro",
-  tagline: "Daha güçlü. Daha parlak. Daha Pro.",
-  price: 1299,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_12901a2b5-1767695755283.png",
+  id: "ultrabook-pro-x1",
+  name: "UltraBook Pro X1",
+  tagline: "İnce. Hafif. Güçlü. Her yerde.",
+  price: 42999,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1f4266108-1777043256605.png",
   colors: [
-  { name: "Doğal Titanyum", hex: "#9A9A9D" },
-  { name: "Mavi Titanyum", hex: "#394E6A" },
-  { name: "Beyaz Titanyum", hex: "#F5F5F0" },
-  { name: "Siyah Titanyum", hex: "#3A3A3C" }],
+  { name: "Uzay Grisi", hex: "#86868B" },
+  { name: "Gümüş", hex: "#C0C0C0" },
+  { name: "Gece Yarısı", hex: "#1d1d1f" }],
 
-  models: ["41mm", "45mm", "49mm"],
+  models: ["Core i5 / 16GB", "Core i7 / 16GB", "Core i7 / 32GB"],
   isNew: true,
-  category: "Akıllı Bileklik",
+  category: "Ultrabook",
   description:
-  "Aura Wristband Pro, titanyum kasasıyla hem dayanıklı hem de şık bir tasarım sunar. Gelişmiş sağlık sensörleri, 36 saate kadar pil ömrü ve su geçirmezlik özelliğiyle her koşulda yanınızda. Yeni nesil ekran teknolojisi ile güneş ışığında bile mükemmel görünürlük sağlar.",
+  "UltraBook Pro X1, sadece 1.1 kg ağırlığı ve 13.5mm inceliğiyle dünyanın en taşınabilir iş bilgisayarlarından biridir. Intel Core i7 işlemcisi, 16 saate kadar pil ömrü ve 2K OLED ekranıyla her ortamda üstün performans sunar. Tam boyutlu klavye ve Thunderbolt 4 bağlantısıyla profesyonel iş akışlarını destekler.",
   specs: [
-  { label: "Kasa Malzemesi", value: "Titanyum" },
-  { label: "Ekran", value: "Always-On LTPO OLED" },
-  { label: "Pil Ömrü", value: "36 saate kadar" },
-  { label: "Su Direnci", value: "100 metre" },
-  { label: "Sensörler", value: "Kalp atışı, SpO2, EKG, Sıcaklık" },
-  { label: "Bağlantı", value: "Bluetooth 5.3, Wi-Fi 6" }],
+  { label: "İşlemci", value: "Intel Core i7-1365U" },
+  { label: "Ekran", value: "14\" 2K OLED 120Hz" },
+  { label: "RAM", value: "16GB / 32GB LPDDR5" },
+  { label: "Depolama", value: "512GB / 1TB NVMe SSD" },
+  { label: "Pil Ömrü", value: "16 saate kadar" },
+  { label: "Ağırlık", value: "1.1 kg" }],
 
   faqs: [
   {
-    question: "Aura Wristband Pro hangi telefonlarla uyumlu?",
-    answer:
-    "Aura Wristband Pro, Android 10 ve üzeri ile iOS 15 ve üzeri işletim sistemleriyle tam uyumludur. LuminaTech uygulamasını indirerek tüm özelliklerden yararlanabilirsiniz."
+    question: "UltraBook Pro X1 hangi işletim sistemleriyle çalışır?",
+    answer: "Windows 11 Pro ile birlikte gelir. Linux dağıtımlarıyla da tam uyumludur. macOS desteklenmez."
   },
   {
-    question: "Pil ömrü ne kadar sürer?",
-    answer:
-    "Normal kullanımda 36 saate kadar pil ömrü sunar. Always-On ekran kapalıyken bu süre 48 saate çıkabilir. Manyetik şarj cihazıyla 1 saatte tam şarj olur."
+    question: "Pil ömrü gerçekten 16 saat mi?",
+    answer: "Orta yoğunlukta kullanımda (web, ofis uygulamaları) 16 saate kadar ulaşabilir. Video düzenleme veya yoğun işlemci kullanımında bu süre 8-10 saate düşebilir."
   },
   {
-    question: "Su geçirmez mi?",
-    answer:
-    "Evet, 100 metre su direncine sahiptir. Yüzme ve dalış aktivitelerinde rahatlıkla kullanabilirsiniz. Ancak yüksek basınçlı su altında kullanılması önerilmez."
+    question: "RAM yükseltilebilir mi?",
+    answer: "Hayır, RAM anakarta lehimlidir. Satın alma sırasında doğru kapasiteyi seçmeniz önerilir."
   },
   {
-    question: "Kayış değiştirilebilir mi?",
-    answer:
-    "Evet, Aura Wristband Pro tüm LuminaTech kayışlarıyla uyumludur. Hızlı değiştirme mekanizması sayesinde saniyeler içinde kayışınızı değiştirebilirsiniz."
+    question: "Kaç adet USB-C portu var?",
+    answer: "2 adet Thunderbolt 4 (USB-C), 1 adet USB-A 3.2 ve 1 adet HDMI 2.1 portu bulunur. Her iki Thunderbolt portu şarj ve veri aktarımı için kullanılabilir."
   },
   {
     question: "Garanti süresi ne kadar?",
-    answer:
-    "Aura Wristband Pro, satın alma tarihinden itibaren 2 yıl üretici garantisi kapsamındadır. Ekstra koruma için LuminaTech Care+ planına dahil olabilirsiniz."
+    answer: "2 yıl uluslararası üretici garantisi kapsamındadır. LuminaTech Care+ ile 3 yıla uzatılabilir."
   }]
 
 },
 {
-  id: "aura-wristband",
-  name: "Aura Wristband",
-  tagline: "Performans ve tarz bir arada.",
-  price: 999,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_160012b9f-1764826416747.png",
+  id: "gaming-laptop-rx9",
+  name: "GameForce RX9",
+  tagline: "Sınırları zorla. Oyunu kazan.",
+  price: 67999,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_18ef3d81d-1777043255349.png",
   colors: [
-  { name: "Gece Yarısı", hex: "#1d1d1f" },
-  { name: "Yıldız Işığı", hex: "#F9F3EE" },
-  { name: "Kırmızı", hex: "#BF4F51" }],
+  { name: "Siyah", hex: "#1d1d1f" },
+  { name: "Kırmızı/Siyah", hex: "#BF4F51" }],
 
-  models: ["41mm", "45mm"],
+  models: ["RTX 4060 / 16GB", "RTX 4070 / 32GB", "RTX 4080 / 32GB"],
   isNew: true,
-  category: "Akıllı Bileklik",
+  category: "Oyuncu Laptopu",
   description:
-  "Aura Wristband, günlük yaşamın her anına eşlik eden akıllı bilekliktir. Sağlık takibi, spor modları ve akıllı bildirimlerle hayatınızı kolaylaştırır. Alüminyum kasası ve renkli seçenekleriyle tarzınızı yansıtın.",
+  "GameForce RX9, NVIDIA RTX 4080 ekran kartı ve Intel Core i9 işlemcisiyle en zorlu oyunları maksimum ayarlarda çalıştırır. 240Hz QHD ekranı, RGB aydınlatmalı klavyesi ve gelişmiş soğutma sistemiyle gerçek bir oyun canavarıdır. MUX Switch teknolojisiyle ekran kartı performansını doğrudan ekrana yönlendirir.",
   specs: [
-  { label: "Kasa Malzemesi", value: "Alüminyum" },
-  { label: "Ekran", value: "LTPO OLED Retina" },
-  { label: "Pil Ömrü", value: "18 saate kadar" },
-  { label: "Su Direnci", value: "50 metre" },
-  { label: "Sensörler", value: "Kalp atışı, SpO2, Uyku takibi" },
-  { label: "Bağlantı", value: "Bluetooth 5.2, Wi-Fi 5" }],
+  { label: "İşlemci", value: "Intel Core i9-13980HX" },
+  { label: "Ekran Kartı", value: "NVIDIA RTX 4080 16GB" },
+  { label: "Ekran", value: "17.3\" QHD 240Hz IPS" },
+  { label: "RAM", value: "32GB DDR5 5600MHz" },
+  { label: "Depolama", value: "2TB NVMe SSD (PCIe 5.0)" },
+  { label: "Soğutma", value: "Çift Fan + Sıvı Metal" }],
 
   faqs: [
   {
-    question: "Aura Wristband ile Aura Wristband Pro arasındaki fark nedir?",
-    answer:
-    "Pro modeli titanyum kasa, daha uzun pil ömrü (36 saat), daha derin su direnci (100m) ve EKG sensörü gibi gelişmiş özellikler sunar. Standart model ise daha uygun fiyatıyla günlük kullanım için idealdir."
+    question: "Hangi oyunları 4K\'da oynayabilirim?",
+    answer: "RTX 4080 modeliyle Cyberpunk 2077, Hogwarts Legacy, Alan Wake 2 gibi AAA oyunları 4K/60fps'de DLSS 3 ile akıcı şekilde oynanabilir."
   },
   {
-    question: "Hangi spor aktivitelerini takip edebilir?",
-    answer:
-    "Koşu, yürüyüş, bisiklet, yüzme, yoga, HIIT ve 40'tan fazla spor aktivitesini otomatik olarak algılar ve takip eder."
+    question: "Pil ömrü oyun oynarken ne kadar?",
+    answer: "Oyun oynarken 1.5-2 saat pil ömrü beklenir. Günlük kullanımda (web, ofis) 6-8 saate kadar çıkabilir. Oyun için prize bağlı kullanım önerilir."
   },
   {
-    question: "Uyku takibi yapıyor mu?",
-    answer:
-    "Evet, uyku evrelerini (derin uyku, REM, hafif uyku) takip eder ve sabah detaylı uyku analizi sunar. Uyku kalitesini artırmak için öneriler de alabilirsiniz."
+    question: "RAM yükseltilebilir mi?",
+    answer: "Evet, 2 adet SO-DIMM yuvası bulunur ve 64GB'a kadar yükseltilebilir. Fabrika çıkışı 32GB DDR5 ile gelir."
   },
   {
-    question: "Şarj süresi ne kadar?",
-    answer:
-    "Dahil edilen manyetik şarj kablosuyla yaklaşık 1.5 saatte tam şarj olur. 30 dakikalık hızlı şarjla 8 saatlik kullanım süresi elde edebilirsiniz."
+    question: "MUX Switch nedir?",
+    answer: "MUX Switch, entegre ekran kartını devre dışı bırakarak oyun performansını %10-15 artırır. BIOS veya uygulama üzerinden etkinleştirilebilir."
+  },
+  {
+    question: "Soğutma sistemi ne kadar gürültülü?",
+    answer: "Yoğun oyun sırasında 45-50 dB ses seviyesine ulaşabilir. Sessiz mod aktifken 35 dB'nin altında kalır."
   }]
 
 },
 {
-  id: "aura-wristband-se",
-  name: "Aura Wristband SE",
-  tagline: "Sevilen özellikler, uygun fiyat.",
-  price: 699,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_12e8a92af-1772267194381.png",
-  colors: [
-  { name: "Gece Yarısı", hex: "#1d1d1f" },
-  { name: "Yıldız Işığı", hex: "#F9F3EE" }],
-
-  models: ["40mm", "44mm"],
-  isNew: false,
-  category: "Akıllı Bileklik",
-  description:
-  "Aura Wristband SE, en çok sevilen özellikleri uygun bir fiyatla sunar. Temel sağlık takibi, bildirimler ve uzun pil ömrüyle günlük hayatınızın vazgeçilmezi olur. Giriş seviyesi akıllı bileklik arayanlar için mükemmel seçim.",
-  specs: [
-  { label: "Kasa Malzemesi", value: "Alüminyum" },
-  { label: "Ekran", value: "LTPO OLED" },
-  { label: "Pil Ömrü", value: "18 saate kadar" },
-  { label: "Su Direnci", value: "50 metre" },
-  { label: "Sensörler", value: "Kalp atışı, Adım sayar" },
-  { label: "Bağlantı", value: "Bluetooth 5.0" }],
-
-  faqs: [
-  {
-    question: "SE modeli diğer modellerden ne farkı var?",
-    answer:
-    "SE modeli, temel sağlık ve fitness özelliklerini daha uygun bir fiyatla sunar. SpO2 ve EKG gibi gelişmiş sensörler bulunmaz, ancak günlük kullanım için gereken tüm özellikler mevcuttur."
-  },
-  {
-    question: "Çocuklar için uygun mu?",
-    answer:
-    "Evet, 40mm boyutu küçük bilekler için uygundur. Ebeveyn kontrol özellikleri ve konum paylaşımı ile çocuklar için güvenli bir seçenektir."
-  },
-  {
-    question: "Diğer Aura Wristband kayışlarıyla uyumlu mu?",
-    answer:
-    "Evet, aynı boyuttaki tüm LuminaTech kayışlarıyla uyumludur. 40mm SE için 40mm kayışlar, 44mm SE için 44mm kayışlar kullanılabilir."
-  }]
-
-},
-{
-  id: "sonic-buds-pro",
-  name: "Sonic Buds Pro",
-  tagline: "Adaptif Ses. Kişiselleştirilmiş deneyim.",
-  price: 899,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_196519acc-1767957458604.png",
+  id: "ebook-reader-lumina",
+  name: "Lumina E-Reader 7",
+  tagline: "Binlerce kitap, tek cihaz.",
+  price: 4999,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_12b258fcf-1777043255209.png",
   colors: [
   { name: "Beyaz", hex: "#F5F5F0" },
   { name: "Siyah", hex: "#1d1d1f" }],
 
+  models: ["8GB", "32GB", "32GB Waterproof"],
+  isNew: false,
+  category: "E-Kitap Okuyucu",
+  description:
+  "Lumina E-Reader 7, 7 inçlik E-Ink Carta 1200 ekranıyla gerçek kağıt hissini dijital ortama taşır. Ayarlanabilir sıcak/soğuk arka ışık, 12 haftalık pil ömrü ve IPX8 su geçirmezliğiyle her ortamda okuma keyfi sunar. 32GB depolama ile 24.000'den fazla kitap taşıyabilirsiniz.",
+  specs: [
+  { label: "Ekran", value: "7\" E-Ink Carta 1200, 300 PPI" },
+  { label: "Arka Işık", value: "Ayarlanabilir Sıcak/Soğuk LED" },
+  { label: "Depolama", value: "8GB / 32GB" },
+  { label: "Pil Ömrü", value: "12 haftaya kadar" },
+  { label: "Su Direnci", value: "IPX8 (2m, 60 dk)" },
+  { label: "Ağırlık", value: "205 gram" }],
+
+  faqs: [
+  {
+    question: "Hangi kitap formatlarını destekliyor?",
+    answer: "EPUB, MOBI, PDF, AZW3, TXT, HTML, DOCX formatlarını destekler. Kindle kitapları için DRM dönüştürme aracı gerekebilir."
+  },
+  {
+    question: "Gözlere zararlı mı?",
+    answer: "E-Ink teknolojisi, tablet veya telefon ekranlarına kıyasla çok daha az göz yorar. Yansımasız mat yüzey ve ayarlanabilir arka ışık ile saatlerce rahat okuma sağlar."
+  },
+  {
+    question: "Kütüphane senkronizasyonu var mı?",
+    answer: "Evet, LuminaCloud ile birden fazla cihaz arasında kitap ve okuma ilerlemesi senkronize edilir. Calibre ile de uyumludur."
+  },
+  {
+    question: "Waterproof model banyo veya havuzda kullanılabilir mi?",
+    answer: "IPX8 sertifikasıyla 2 metre derinlikte 60 dakikaya kadar suya dayanır. Tatlı su için uygundur, tuzlu su veya klor içeren suda kullanımdan sonra temizlenmelidir."
+  }]
+
+},
+{
+  id: "smart-pen-aura",
+  name: "Aura Smart Pen Pro",
+  tagline: "Yaz, çiz, dijitalleştir.",
+  price: 2499,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_118c7c508-1777043255258.png",
+  colors: [
+  { name: "Gümüş", hex: "#C0C0C0" },
+  { name: "Siyah", hex: "#1d1d1f" },
+  { name: "Altın", hex: "#D4AF37" }],
+
   models: ["Standart", "Pro", "Pro Max"],
   isNew: true,
-  category: "Kablosuz Kulaklık",
+  category: "Akıllı Kalem",
   description:
-  "Sonic Buds Pro, adaptif gürültü engelleme teknolojisiyle çevrenizi dinleyip otomatik olarak ayarlanan ses deneyimi sunar. Kişiselleştirilmiş ses profili, 30 saate kadar pil ömrü ve kristal netliğinde mikrofon sistemiyle müziği ve aramaları yeni bir boyuta taşır.",
+  "Aura Smart Pen Pro, kağıda yazdıklarınızı anında dijitalleştiren devrimci bir akıllı kalemdir. 4096 basınç seviyesi, eğim algılama ve 0.5ms gecikme süresiyle doğal yazı ve çizim deneyimi sunar. Dahili mikrofon ile ses kaydı yaparak notlarınızla senkronize eder.",
   specs: [
-  { label: "Sürücü", value: "11mm Dinamik + Armature" },
-  { label: "Gürültü Engelleme", value: "Adaptif ANC (-40dB)" },
-  { label: "Pil Ömrü", value: "6 saat (kılıfla 30 saat)" },
-  { label: "Şarj", value: "USB-C + Kablosuz" },
-  { label: "Bağlantı", value: "Bluetooth 5.3, Multipoint" },
-  { label: "Su Direnci", value: "IPX4" }],
-
-  faqs: [
-  {
-    question: "Gürültü engelleme ne kadar etkili?",
-    answer:
-    "Adaptif ANC teknolojisi, ortam sesini -40dB'e kadar azaltır. Uçak, metro veya kalabalık ofis gibi gürültülü ortamlarda bile müziğinizi net bir şekilde duyabilirsiniz."
-  },
-  {
-    question: "Aynı anda birden fazla cihaza bağlanabilir mi?",
-    answer:
-    "Evet, Multipoint teknolojisi sayesinde aynı anda 2 cihaza bağlı kalabilirsiniz. Telefon ve bilgisayar arasında otomatik geçiş yapar."
-  },
-  {
-    question: "Pil ömrü ne kadar?",
-    answer:
-    "Kulaklıkların kendisi 6 saate kadar, şarj kılıfıyla birlikte toplam 30 saate kadar kullanım sunar. ANC açıkken bu süre yaklaşık %20 azalır."
-  },
-  {
-    question: "Spor yaparken kullanılabilir mi?",
-    answer:
-    "Evet, IPX4 su ve ter direnci sayesinde yoğun antrenmanlar sırasında güvenle kullanabilirsiniz. Ergonomik tasarımı sayesinde kulaktan düşmez."
-  },
-  {
-    question: "Kişiselleştirilmiş ses profili nasıl çalışır?",
-    answer:
-    "LuminaTech uygulamasındaki işitme testi ile kişisel işitme profiliniz oluşturulur. Kulaklık bu profile göre sesi otomatik olarak optimize eder."
-  }]
-
-},
-{
-  id: "sonic-buds",
-  name: "Sonic Buds",
-  tagline: "Etkileyici ses, rahat kullanım.",
-  price: 599,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1a965f3a1-1773946767324.png",
-  colors: [
-  { name: "Beyaz", hex: "#F5F5F0" },
-  { name: "Siyah", hex: "#1d1d1f" },
-  { name: "Pembe", hex: "#F2D7D9" }],
-
-  models: ["Standart", "Lite"],
-  isNew: false,
-  category: "Kablosuz Kulaklık",
-  description:
-  "Sonic Buds, günlük kullanım için tasarlanmış kablosuz kulaklıktır. Zengin bas ve net tiz dengesiyle müziğin her detayını hissedersiniz. Hafif yapısı ve ergonomik tasarımıyla saatlerce konforlu kullanım sunar.",
-  specs: [
-  { label: "Sürücü", value: "10mm Dinamik" },
-  { label: "Gürültü Engelleme", value: "Pasif Gürültü Yalıtımı" },
-  { label: "Pil Ömrü", value: "5 saat (kılıfla 24 saat)" },
-  { label: "Şarj", value: "USB-C" },
+  { label: "Basınç Seviyesi", value: "4096 Kademe" },
+  { label: "Gecikme", value: "0.5ms" },
+  { label: "Eğim Algılama", value: "±60 derece" },
+  { label: "Pil Ömrü", value: "12 saate kadar" },
   { label: "Bağlantı", value: "Bluetooth 5.2" },
-  { label: "Su Direnci", value: "IPX4" }],
+  { label: "Uyumluluk", value: "iOS, Android, Windows, macOS" }],
 
   faqs: [
   {
-    question: "Sonic Buds ile Sonic Buds Pro arasındaki fark nedir?",
-    answer:
-    "Pro modeli adaptif ANC, daha uzun pil ömrü, kablosuz şarj ve Multipoint bağlantı gibi gelişmiş özellikler sunar. Standart Sonic Buds ise günlük kullanım için uygun fiyatlı bir seçenektir."
+    question: "Hangi tablet ve uygulamalarla uyumlu?",
+    answer: "iPad (USB-C modeller), Samsung Galaxy Tab S serisi, Microsoft Surface ve tüm Bluetooth destekli tabletlerle uyumludur. Procreate, GoodNotes, Notability, OneNote ile tam entegrasyon sağlar."
   },
   {
-    question: "Telefon görüşmesi kalitesi nasıl?",
-    answer:
-    "Çift mikrofon sistemi ve gürültü filtreleme teknolojisi sayesinde açık havada bile net ses kalitesi sunar. Aramalarda karşı taraf sizi net bir şekilde duyar."
+    question: "Kağıda yazılanları dijitalleştirmek için özel defter gerekiyor mu?",
+    answer: "Pro Max modeli, özel Aura Smart Notebook ile birlikte kullanıldığında kağıt notları otomatik dijitalleştirir. Standart ve Pro modeller tablet ekranında çalışır."
   },
   {
-    question: "Kulaklık kılıfı kablosuz şarj destekliyor mu?",
-    answer:
-    "Standart Sonic Buds kılıfı USB-C ile şarj olur. Kablosuz şarj özelliği yalnızca Sonic Buds Pro modelinde mevcuttur."
+    question: "Şarj süresi ne kadar?",
+    answer: "USB-C ile 45 dakikada tam şarj olur. Manyetik şarj standıyla da şarj edilebilir."
+  },
+  {
+    question: "Sol elle kullanım için uygun mu?",
+    answer: "Evet, simetrik tasarımı ve eğim algılama özelliği sayesinde hem sağ hem sol elle doğal kullanım sağlar."
   }]
 
 },
 {
-  id: "nova-speaker-max",
-  name: "Nova Speaker Max",
-  tagline: "Büyüleyici uzaysal ses.",
-  price: 1599,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_11dc1cfc7-1777040845228.png",
+  id: "arduino-starter-kit",
+  name: "Arduino Mega Starter Kit",
+  tagline: "Projeye başla, hayal et, üret.",
+  price: 1299,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_17baa3db7-1777043255708.png",
+  colors: [
+  { name: "Mavi", hex: "#007AFF" }],
+
+  models: ["Arduino Uno R3", "Arduino Mega 2560", "Raspberry Pi 4 4GB", "Raspberry Pi 5 8GB"],
+  isNew: false,
+  category: "Arduino & Raspberry Pi",
+  description:
+  "Arduino ve Raspberry Pi starter kitleri, elektronik ve yazılım dünyasına adım atmak isteyenler için eksiksiz başlangıç noktasıdır. 37 parça sensör seti, breadboard, jumper kablolar ve proje rehberiyle ilk projenizi hemen hayata geçirebilirsiniz. Raspberry Pi 5 modeli 8GB RAM ve PCIe 2.0 bağlantısıyla güçlü mini bilgisayar deneyimi sunar.",
+  specs: [
+  { label: "Arduino Uno R3", value: "ATmega328P, 14 Dijital Pin" },
+  { label: "Arduino Mega", value: "ATmega2560, 54 Dijital Pin" },
+  { label: "Raspberry Pi 4", value: "Cortex-A72, 4GB LPDDR4" },
+  { label: "Raspberry Pi 5", value: "Cortex-A76, 8GB LPDDR4X" },
+  { label: "Kit İçeriği", value: "37 Sensör + Breadboard + Kablolar" },
+  { label: "Güç", value: "5V USB-C / Micro-USB" }],
+
+  faqs: [
+  {
+    question: "Arduino ve Raspberry Pi arasındaki fark nedir?",
+    answer: "Arduino bir mikrodenetleyicidir; sensör okuma, motor kontrolü gibi donanım görevleri için idealdir. Raspberry Pi tam bir mini bilgisayardır; işletim sistemi çalıştırır, web sunucusu, medya merkezi gibi karmaşık uygulamalar için uygundur."
+  },
+  {
+    question: "Başlangıç için hangisi daha uygun?",
+    answer: "Elektronik ve devre konusunda yeni başlayanlar için Arduino Uno R3 daha basit ve öğreticidir. Yazılım geliştirme deneyimi olanlar Raspberry Pi ile daha hızlı ilerleme kaydedebilir."
+  },
+  {
+    question: "Hangi programlama dilleri kullanılır?",
+    answer: "Arduino, C/C++ tabanlı Arduino IDE ile programlanır. Raspberry Pi Python, JavaScript, C++, Java ve daha birçok dili destekler."
+  },
+  {
+    question: "Raspberry Pi 5 için ekran gerekiyor mu?",
+    answer: "Micro HDMI çıkışı ile monitöre bağlanabilir. Headless (ekransız) kurulum ile SSH üzerinden de kullanılabilir."
+  }]
+
+},
+{
+  id: "stm32-dev-board",
+  name: "STM32 Geliştirme Kiti",
+  tagline: "Gömülü sistemlerde profesyonel çözüm.",
+  price: 899,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1f3394b13-1777043254818.png",
+  colors: [
+  { name: "Yeşil", hex: "#34C759" }],
+
+  models: ["STM32F103", "STM32F407", "STM32H743", "Nucleo-64"],
+  isNew: false,
+  category: "STM32",
+  description:
+  "STM32 geliştirme kartları, endüstriyel ve profesyonel gömülü sistem projelerinde tercih edilen ARM Cortex-M tabanlı mikrodenetleyicilerdir. STM32H743 modeli 480MHz çalışma frekansı ve DSP/FPU desteğiyle sinyal işleme ve motor kontrolü uygulamaları için idealdir. ST-Link V2 programlayıcı ve kapsamlı kütüphane desteğiyle hızlı geliştirme sağlar.",
+  specs: [
+  { label: "STM32F103", value: "ARM Cortex-M3, 72MHz, 64KB Flash" },
+  { label: "STM32F407", value: "ARM Cortex-M4, 168MHz, 1MB Flash" },
+  { label: "STM32H743", value: "ARM Cortex-M7, 480MHz, 2MB Flash" },
+  { label: "Nucleo-64", value: "Arduino uyumlu pin dizilimi" },
+  { label: "Programlama", value: "ST-Link V2, SWD/JTAG" },
+  { label: "IDE Desteği", value: "STM32CubeIDE, Keil, IAR" }],
+
+  faqs: [
+  {
+    question: "STM32 başlangıç için uygun mu?",
+    answer: "Arduino'ya kıyasla öğrenme eğrisi daha diktir. Temel C bilgisi ve mikrodenetleyici kavramlarına aşinalık önerilir. Nucleo-64 kartı, Arduino uyumlu pinleri sayesinde başlangıç için en uygun modeldir."
+  },
+  {
+    question: "HAL kütüphanesi mi, LL kütüphanesi mi kullanmalıyım?",
+    answer: "HAL (Hardware Abstraction Layer) başlangıç için daha kolaydır ve taşınabilirlik sağlar. LL (Low Layer) daha hızlı ve verimlidir ancak daha fazla donanım bilgisi gerektirir."
+  },
+  {
+    question: "FreeRTOS kullanılabilir mi?",
+    answer: "Evet, tüm STM32 modelleri FreeRTOS ile uyumludur. STM32CubeMX ile FreeRTOS entegrasyonu otomatik olarak yapılandırılabilir."
+  },
+  {
+    question: "Hangi iletişim protokollerini destekliyor?",
+    answer: "UART, SPI, I2C, CAN, USB, Ethernet (F407/H743) protokollerini destekler. H743 modeli ayrıca FDCAN ve QSPI desteği sunar."
+  }]
+
+},
+{
+  id: "smartwatch-pro-s3",
+  name: "Aura Watch Pro S3",
+  tagline: "Sağlığını takip et, hayatını yönet.",
+  price: 8999,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_17e2d565b-1777043254838.png",
+  colors: [
+  { name: "Siyah Titanyum", hex: "#3A3A3C" },
+  { name: "Gümüş", hex: "#C0C0C0" },
+  { name: "Altın Rose", hex: "#B76E79" }],
+
+  models: ["41mm", "45mm", "49mm Ultra"],
+  isNew: true,
+  category: "Akıllı Saat",
+  description:
+  "Aura Watch Pro S3, titanyum kasası ve safir cam ekranıyla hem dayanıklı hem de şık bir tasarım sunar. EKG, SpO2, vücut sıcaklığı ve kan basıncı ölçümü gibi gelişmiş sağlık sensörleriyle sürekli sağlık takibi yapar. 49mm Ultra modeli, dağcılık ve dalış için özel sensörler içerir.",
+  specs: [
+  { label: "Kasa", value: "Titanyum / Safir Cam" },
+  { label: "Ekran", value: "Always-On LTPO OLED 2000 nit" },
+  { label: "Pil Ömrü", value: "72 saate kadar" },
+  { label: "Su Direnci", value: "100 metre (Ultra: 200m)" },
+  { label: "Sensörler", value: "EKG, SpO2, Sıcaklık, Kan Basıncı" },
+  { label: "Bağlantı", value: "Bluetooth 5.3, Wi-Fi 6, LTE (opsiyonel)" }],
+
+  faqs: [
+  {
+    question: "Kan basıncı ölçümü ne kadar güvenilir?",
+    answer: "Klinik sınıf hassasiyette ölçüm yapar. Ancak tıbbi teşhis için kullanılmamalı, doktor kontrolü önerilir. Düzenli kalibrasyon için uygulamada yönlendirme yapılır."
+  },
+  {
+    question: "LTE modeli için hangi operatörler destekleniyor?",
+    answer: "Türkiye'de Turkcell, Vodafone ve Türk Telekom eSIM desteği mevcuttur. Telefonsuz bağımsız kullanım için LTE modeli gereklidir."
+  },
+  {
+    question: "Hangi telefonlarla uyumlu?",
+    answer: "Android 10+ ve iOS 16+ ile tam uyumludur. LuminaTech uygulaması üzerinden tüm özellikler kullanılabilir."
+  },
+  {
+    question: "49mm Ultra modeli normal bilekler için çok büyük mü?",
+    answer: "49mm kasa 17cm ve üzeri bilek çevresi için önerilir. 41mm ve 45mm modeller daha geniş bir kitleye hitap eder."
+  },
+  {
+    question: "Kayış değiştirilebilir mi?",
+    answer: "Evet, hızlı değiştirme mekanizmasıyla tüm LuminaTech kayışlarıyla uyumludur. Spor, deri, metal ve örgü kayış seçenekleri mevcuttur."
+  }]
+
+},
+{
+  id: "anc-headphones-elite",
+  name: "SoundShield Elite ANC",
+  tagline: "Sessizliği hisset. Müziği yaşa.",
+  price: 5499,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1b7091a9c-1765437610015.png",
+  colors: [
+  { name: "Siyah", hex: "#1d1d1f" },
+  { name: "Beyaz", hex: "#F5F5F0" },
+  { name: "Gece Mavisi", hex: "#394E6A" }],
+
+  models: ["Standart", "Pro", "Pro Wireless"],
+  isNew: true,
+  category: "Gürültü Engelleyici Kulaklık",
+  description:
+  "SoundShield Elite ANC, -45dB aktif gürültü engelleme teknolojisiyle uçak, metro ve kalabalık ofis ortamlarında mükemmel sessizlik sağlar. 40mm özel sürücüler ve Hi-Res Audio sertifikasıyla stüdyo kalitesinde ses sunar. 30 saatlik pil ömrü ve katlanabilir tasarımıyla seyahat için ideal eşlik.",
+  specs: [
+  { label: "Sürücü", value: "40mm Özel Dinamik" },
+  { label: "ANC", value: "-45dB Hibrit Aktif Gürültü Engelleme" },
+  { label: "Frekans Yanıtı", value: "4Hz - 40kHz (Hi-Res)" },
+  { label: "Pil Ömrü", value: "30 saat (ANC açık), 40 saat (ANC kapalı)" },
+  { label: "Şarj", value: "USB-C + Kablosuz Qi" },
+  { label: "Bağlantı", value: "Bluetooth 5.3 Multipoint, 3.5mm" }],
+
+  faqs: [
+  {
+    question: "ANC açıkken ses kalitesi düşüyor mu?",
+    answer: "Hayır, hibrit ANC sistemi ses kalitesini etkilemez. Bazı kullanıcılar ANC açıkken hafif bir basınç hissi yaşayabilir, bu normaldir."
+  },
+  {
+    question: "Telefon görüşmelerinde mikrofon kalitesi nasıl?",
+    answer: "6 adet mikrofon ve yapay zeka destekli gürültü filtreleme ile rüzgarlı veya kalabalık ortamlarda bile kristal net ses kalitesi sunar."
+  },
+  {
+    question: "Aynı anda iki cihaza bağlanabilir mi?",
+    answer: "Evet, Multipoint teknolojisi ile telefon ve bilgisayara aynı anda bağlı kalır. Bir cihazda müzik çalarken diğerinden gelen arama otomatik olarak algılanır."
+  },
+  {
+    question: "Uzun süre kullanımda kulak ısınıyor mu?",
+    answer: "Nefes alabilen protein deri kulak yastıkları ve ergonomik tasarım sayesinde 4-5 saatlik kullanımda bile konfor sağlar. Yoğun spor aktiviteleri için kulak içi model önerilir."
+  },
+  {
+    question: "Kablo ile kullanılabilir mi?",
+    answer: "Evet, dahil edilen 3.5mm kablo ile kablolu kullanım mümkündür. Pil bittiğinde de kablolu modda çalışmaya devam eder."
+  }]
+
+},
+{
+  id: "powerbank-ultra-30k",
+  name: "PowerCore Ultra 30000",
+  tagline: "Şarj tükenmesin, hayat durmasın.",
+  price: 1799,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1b3fb128b-1777043254549.png",
+  colors: [
+  { name: "Siyah", hex: "#1d1d1f" },
+  { name: "Beyaz", hex: "#F5F5F0" },
+  { name: "Mavi", hex: "#007AFF" }],
+
+  models: ["10.000 mAh", "20.000 mAh", "30.000 mAh 140W"],
+  isNew: false,
+  category: "Powerbank",
+  description:
+  "PowerCore Ultra 30000, 140W çift yönlü hızlı şarj teknolojisiyle hem cihazlarınızı hem de kendisini hızla şarj eder. 30.000 mAh kapasitesiyle laptop dahil tüm cihazlarınızı birden şarj edebilirsiniz. Dijital ekran, akıllı güç dağıtımı ve uçak güvenli tasarımıyla seyahatin vazgeçilmezi.",
+  specs: [
+  { label: "Kapasite", value: "10.000 / 20.000 / 30.000 mAh" },
+  { label: "Maks. Çıkış", value: "140W (USB-C)" },
+  { label: "Portlar", value: "2x USB-C + 2x USB-A" },
+  { label: "Şarj Süresi", value: "1.5 saat (140W girişle)" },
+  { label: "Uçak Uyumu", value: "Evet (30.000 mAh dahil)" },
+  { label: "Ağırlık", value: "680g (30.000 mAh)" }],
+
+  faqs: [
+  {
+    question: "Laptop şarj edebilir mi?",
+    answer: "Evet, 140W USB-C çıkışı ile MacBook Pro, Dell XPS, ThinkPad gibi laptopları şarj edebilir. Laptopun USB-C PD şarjı desteklemesi gerekir."
+  },
+  {
+    question: "Uçakta taşınabilir mi?",
+    answer: "30.000 mAh model 111Wh kapasitesiyle uluslararası havayolu kurallarına uygundur (100Wh üzeri için havayolu onayı gerekebilir). 20.000 mAh ve altı modeller sorunsuz taşınabilir."
+  },
+  {
+    question: "Aynı anda kaç cihaz şarj edilebilir?",
+    answer: "4 porta aynı anda bağlanabilir. Akıllı güç dağıtımı, bağlı cihazlara optimum güç paylaşımı yapar."
+  },
+  {
+    question: "Kablosuz şarj desteği var mı?",
+    answer: "Standart modellerde kablosuz şarj yoktur. Kablosuz şarj özelliği için PowerCore Wireless modelini tercih edebilirsiniz."
+  }]
+
+},
+{
+  id: "external-ssd-swift",
+  name: "SwiftDrive Pro SSD",
+  tagline: "Hız, güvenlik, taşınabilirlik.",
+  price: 2299,
+  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1c28c1f60-1777043255262.png",
   colors: [
   { name: "Uzay Grisi", hex: "#86868B" },
-  { name: "Gece Yarısı", hex: "#1d1d1f" }],
+  { name: "Gümüş", hex: "#C0C0C0" }],
 
-  models: ["Standart", "Max"],
+  models: ["500GB SSD", "1TB SSD", "2TB SSD", "4TB HDD", "8TB HDD"],
   isNew: true,
-  category: "Hoparlör",
+  category: "Harici SSD/HDD",
   description:
-  "Nova Speaker Max, 360 derece uzaysal ses teknolojisiyle odanın her köşesine eşit ses dağıtır. 5 tweeter ve 1 woofer ile oluşan ses sistemi, canlı konser deneyimini evinize taşır. Akıllı ev sistemleriyle tam entegrasyon sunar.",
+  "SwiftDrive Pro SSD, 2000MB/s okuma hızıyla profesyonel video düzenleme ve büyük dosya transferleri için tasarlanmıştır. Alüminyum kasa, IP55 toz ve su direnci ve 2 metre düşme korumasıyla en zorlu koşullarda güvenilir depolama sağlar. HDD modelleri ise büyük arşivler için uygun fiyatlı çözüm sunar.",
   specs: [
-  { label: "Sürücü Sayısı", value: "5 Tweeter + 1 Woofer" },
-  { label: "Toplam Güç", value: "360W" },
-  { label: "Ses Teknolojisi", value: "Uzaysal Ses, Dolby Atmos" },
-  { label: "Bağlantı", value: "Wi-Fi 6, Bluetooth 5.3, AirPlay" },
-  { label: "Akıllı Asistan", value: "Uyumlu" },
-  { label: "Boyut", value: "168 x 168 x 172 mm" }],
+  { label: "SSD Okuma Hızı", value: "2000 MB/s (NVMe)" },
+  { label: "SSD Yazma Hızı", value: "1800 MB/s" },
+  { label: "HDD Hızı", value: "140 MB/s" },
+  { label: "Bağlantı", value: "USB 3.2 Gen 2x2 (USB-C)" },
+  { label: "Koruma", value: "IP55, 2m Düşme Koruması" },
+  { label: "Uyumluluk", value: "Windows, macOS, Linux, PS5, Xbox" }],
 
   faqs: [
   {
-    question: "Birden fazla Nova Speaker Max birbirine bağlanabilir mi?",
-    answer:
-    "Evet, stereo çift veya çok odalı ses sistemi oluşturmak için birden fazla Nova Speaker Max'i birbirine bağlayabilirsiniz. LuminaTech uygulaması üzerinden kolayca yapılandırabilirsiniz."
+    question: "4K video düzenleme için yeterli hızda mı?",
+    answer: "Evet, 2000MB/s okuma hızıyla 4K ProRes ve 8K RAW video düzenleme için yeterlidir. Premiere Pro, DaVinci Resolve ve Final Cut Pro ile sorunsuz çalışır."
   },
   {
-    question: "Hangi müzik servisleriyle uyumlu?",
-    answer:
-    "Spotify, Apple Music, YouTube Music, Tidal ve diğer popüler müzik servisleriyle uyumludur. AirPlay ve Bluetooth ile herhangi bir kaynaktan müzik çalabilirsiniz."
+    question: "PS5 ile uyumlu mu?",
+    answer: "SSD modeller PS5 genişletilmiş depolama olarak kullanılabilir. Ancak PS5 dahili SSD hızlarına ulaşmak için M.2 NVMe yuvası önerilir. Harici SSD PS5 oyunlarını depolamak için uygundur."
   },
   {
-    question: "Akıllı ev sistemleriyle entegre olabiliyor mu?",
-    answer:
-    "Evet, Google Home, Apple HomeKit ve Amazon Alexa ile tam entegrasyon sağlar. Ses komutlarıyla kontrol edebilir, otomasyon rutinlerine ekleyebilirsiniz."
+    question: "Şifreleme özelliği var mı?",
+    answer: "Evet, AES 256-bit donanım şifreleme desteği mevcuttur. SwiftDrive uygulaması üzerinden şifre koruması etkinleştirilebilir."
   },
   {
-    question: "Pil var mı, sadece prize mi bağlı çalışıyor?",
-    answer:
-    "Nova Speaker Max yalnızca prize bağlı çalışır. Taşınabilir kullanım için Nova Speaker Mini modelini tercih edebilirsiniz."
-  }]
-
-},
-{
-  id: "nova-speaker",
-  name: "Nova Speaker",
-  tagline: "360 derece ses deneyimi.",
-  price: 1199,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_19f2aa369-1777040845288.png",
-  colors: [
-  { name: "Siyah", hex: "#1d1d1f" },
-  { name: "Beyaz", hex: "#F5F5F0" },
-  { name: "Mavi", hex: "#3478F6" }],
-
-  models: ["Standart", "Plus"],
-  isNew: false,
-  category: "Hoparlör",
-  description:
-  "Nova Speaker, kompakt tasarımı ve güçlü sesiyle her ortama uyum sağlar. 360 derece ses yayılımı ve derin bas teknolojisiyle müziği yeni bir boyutta deneyimleyin. Akıllı ses optimizasyonu ile bulunduğunuz odaya göre sesi otomatik ayarlar.",
-  specs: [
-  { label: "Sürücü Sayısı", value: "3 Tweeter + 1 Woofer" },
-  { label: "Toplam Güç", value: "150W" },
-  { label: "Ses Teknolojisi", value: "360° Ses, Adaptif EQ" },
-  { label: "Bağlantı", value: "Wi-Fi 5, Bluetooth 5.2, AirPlay" },
-  { label: "Akıllı Asistan", value: "Uyumlu" },
-  { label: "Boyut", value: "142 x 142 x 148 mm" }],
-
-  faqs: [
-  {
-    question: "Nova Speaker ve Nova Speaker Max arasındaki fark nedir?",
-    answer:
-    "Max modeli daha fazla sürücü, daha yüksek güç (360W vs 150W) ve Dolby Atmos desteği sunar. Standart Nova Speaker ise orta büyüklükteki odalar için idealdir."
+    question: "HDD modeli ne kadar hızlı?",
+    answer: "HDD modeller 140MB/s okuma hızı sunar. Büyük dosya arşivleme ve yedekleme için idealdir. Oyun veya video düzenleme için SSD modeller önerilir."
   },
   {
-    question: "Adaptif EQ nasıl çalışır?",
-    answer:
-    "Hoparlör, bulunduğu odanın akustiğini analiz eder ve ses çıkışını otomatik olarak optimize eder. Köşede, masada veya açık alanda farklı ses profilleri uygular."
-  },
-  {
-    question: "Bluetooth bağlantısı ne kadar uzaktan çalışır?",
-    answer:
-    "Bluetooth 5.2 teknolojisiyle engelsiz ortamda 10 metreye kadar stabil bağlantı sağlar. Wi-Fi bağlantısında ise ev ağınız kapsamında her yerden kontrol edebilirsiniz."
-  }]
-
-},
-{
-  id: "nova-speaker-mini",
-  name: "Nova Speaker Mini",
-  tagline: "Küçük ama güçlü.",
-  price: 799,
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_1c1bb5331-1766246274336.png",
-  colors: [
-  { name: "Turuncu", hex: "#FF9500" },
-  { name: "Mavi", hex: "#007AFF" },
-  { name: "Yeşil", hex: "#34C759" },
-  { name: "Pembe", hex: "#FF2D55" },
-  { name: "Sarı", hex: "#FFCC00" }],
-
-  models: ["Mini", "Mini Pro"],
-  isNew: true,
-  category: "Hoparlör",
-  description:
-  "Nova Speaker Mini, cebinize sığan boyutuyla güçlü ses sunar. Su geçirmez yapısı ve 12 saatlik pil ömrüyle plaj, kamp veya piknik gibi açık hava aktivitelerine mükemmel eşlik eder. Canlı renk seçenekleriyle kişiliğinizi yansıtın.",
-  specs: [
-  { label: "Sürücü", value: "2 Tweeter + 1 Pasif Radyatör" },
-  { label: "Toplam Güç", value: "30W" },
-  { label: "Pil Ömrü", value: "12 saate kadar" },
-  { label: "Su Direnci", value: "IP67" },
-  { label: "Bağlantı", value: "Bluetooth 5.3" },
-  { label: "Boyut", value: "95 x 95 x 88 mm" }],
-
-  faqs: [
-  {
-    question: "Suya düşerse ne olur?",
-    answer:
-    "IP67 su direnci sayesinde 1 metre derinlikte 30 dakikaya kadar suya dayanır. Havuz kenarı, plaj veya yağmurlu hava için idealdir."
-  },
-  {
-    question: "Pil ömrü ne kadar?",
-    answer:
-    "Orta ses seviyesinde 12 saate kadar kullanım sunar. USB-C ile yaklaşık 2 saatte tam şarj olur. Şarj ederken de müzik çalmaya devam edebilirsiniz."
-  },
-  {
-    question: "İki Mini hoparlörü stereo olarak kullanabilir miyim?",
-    answer:
-    "Evet, iki Nova Speaker Mini'yi eşleştirerek stereo ses deneyimi yaşayabilirsiniz. Bluetooth üzerinden otomatik eşleştirme yapılır."
-  },
-  {
-    question: "Mikrofon var mı, telefon görüşmesi yapılabilir mi?",
-    answer:
-    "Evet, dahili mikrofon sayesinde hoparlörü speakerphone olarak kullanabilirsiniz. Gürültü azaltma teknolojisi ile net ses kalitesi sunar."
+    question: "Garanti süresi ne kadar?",
+    answer: "SSD modeller 5 yıl, HDD modeller 2 yıl garanti kapsamındadır. Veri kurtarma servisi için LuminaTech Care+ planına dahil olabilirsiniz."
   }]
 
 }];
+
 
 
 function FAQItem({ question, answer }: {question: string;answer: string;}) {
@@ -385,35 +458,28 @@ function FAQItem({ question, answer }: {question: string;answer: string;}) {
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-5 text-left gap-4 group">
-
         <span className="text-[15px] font-semibold text-[#1d1d1f] group-hover:text-[#0071e3] transition-colors duration-200 leading-snug">
           {question}
         </span>
         <span
           className={`flex-shrink-0 w-6 h-6 rounded-full bg-[#f5f5f7] flex items-center justify-center transition-transform duration-300 ${
-          open ? "rotate-45" : ""}`
-          }>
-
+          open ? "rotate-45" : ""}`}>
           <svg
             className="w-3 h-3 text-[#1d1d1f]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24">
-
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2.5}
               d="M12 5v14M5 12h14" />
-
           </svg>
         </span>
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        open ? "max-h-96 pb-5" : "max-h-0"}`
-        }>
-
+        open ? "max-h-96 pb-5" : "max-h-0"}`}>
         <p className="text-[14px] text-[#6e6e73] font-light leading-relaxed">
           {answer}
         </p>
@@ -442,7 +508,6 @@ export default function ProductDetailPage() {
           <button
             onClick={() => router.back()}
             className="text-[#0066cc] hover:underline text-[15px] font-medium">
-
             ← Geri dön
           </button>
         </div>
@@ -469,7 +534,6 @@ export default function ProductDetailPage() {
           <button
             onClick={() => router.push("/homepage")}
             className="text-[#0066cc] hover:underline font-medium">
-
             Ana Sayfa
           </button>
           <span className="text-[#6e6e73]">/</span>
@@ -495,7 +559,6 @@ export default function ProductDetailPage() {
               width={480}
               height={480}
               className="object-contain w-full h-full" />
-
           </div>
 
           {/* Info */}
@@ -530,11 +593,9 @@ export default function ProductDetailPage() {
                   className={`w-7 h-7 rounded-full transition-all duration-200 ${
                   selectedColor === i ?
                   "ring-2 ring-[#0071e3] ring-offset-2" :
-                  "hover:ring-2 hover:ring-[#d2d2d7] hover:ring-offset-1"}`
-                  }
+                  "hover:ring-2 hover:ring-[#d2d2d7] hover:ring-offset-1"}`}
                   style={{ backgroundColor: color.hex }}
                   title={color.name} />
-
                 )}
               </div>
             </div>
@@ -552,9 +613,7 @@ export default function ProductDetailPage() {
                   className={`px-4 py-2 rounded-full text-[13px] font-semibold tracking-wide border transition-all duration-200 ${
                   selectedModel === i ?
                   "bg-[#1d1d1f] text-white border-[#1d1d1f]" :
-                  "bg-white text-[#1d1d1f] border-[#d2d2d7] hover:border-[#1d1d1f]"}`
-                  }>
-
+                  "bg-white text-[#1d1d1f] border-[#d2d2d7] hover:border-[#1d1d1f]"}`}>
                     {model}
                   </button>
                 )}
@@ -568,15 +627,12 @@ export default function ProductDetailPage() {
                 className={`flex-1 py-4 px-8 rounded-full text-[15px] font-semibold tracking-wide transition-all duration-300 active:scale-95 ${
                 added ?
                 "bg-[#34c759] text-white" :
-                "bg-[#0071e3] text-white hover:bg-[#0077ed] hover:shadow-xl hover:shadow-[#0071e3]/30"}`
-                }>
-
+                "bg-[#0071e3] text-white hover:bg-[#0077ed] hover:shadow-xl hover:shadow-[#0071e3]/30"}`}>
                 {added ? "✓ Sepete Eklendi" : "Sepete Ekle"}
               </button>
               <button
                 onClick={() => router.push("/checkout")}
                 className="flex-1 py-4 px-8 rounded-full text-[15px] font-semibold tracking-wide border-2 border-[#1d1d1f] text-[#1d1d1f] hover:bg-[#1d1d1f] hover:text-white transition-all duration-300 active:scale-95">
-
                 Hemen Satın Al
               </button>
             </div>
@@ -606,7 +662,6 @@ export default function ProductDetailPage() {
           <div
             key={spec.label}
             className="bg-[#f5f5f7] rounded-2xl p-5">
-
               <p className="text-[11px] uppercase tracking-[0.1em] text-[#6e6e73] font-semibold mb-1">
                 {spec.label}
               </p>
@@ -633,7 +688,6 @@ export default function ProductDetailPage() {
               key={faq.question}
               question={faq.question}
               answer={faq.answer} />
-
             )}
           </div>
         </div>
@@ -644,7 +698,6 @@ export default function ProductDetailPage() {
         <button
           onClick={() => router.back()}
           className="text-[#0066cc] hover:underline text-[15px] font-medium tracking-wide">
-
           ← Tüm ürünlere dön
         </button>
       </div>
