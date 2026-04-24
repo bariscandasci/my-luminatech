@@ -6,15 +6,25 @@ import Icon from "@/components/ui/AppIcon";
 import { useCart } from "@/context/CartContext";
 import UserMenu from "@/components/UserMenu";
 
+const navItems = [
+  { label: "Mağaza", href: "#products" },
+  { label: "Aura Wristband", href: "#products" },
+  { label: "Sonic Buds", href: "#products" },
+  { label: "Nova Speaker", href: "#products" },
+  { label: "Aksesuarlar", href: "#accessories" },
+  { label: "Destek", href: "#" },
+];
+
 export default function Header() {
   const { totalItems } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [cartAnimating, setCartAnimating] = useState(false);
   const [prevCount, setPrevCount] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -32,125 +42,141 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-background/90 backdrop-blur-xl border-b border-border" :"bg-transparent"
+            ? "bg-background/80 backdrop-blur-xl"
+            : "bg-background/60 backdrop-blur-md"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between gap-4">
-          {/* Logo */}
-          <Link
-            href="/homepage"
-            className="flex items-center gap-2 group shrink-0"
-          >
-            <AppLogo size={32} />
-            <span className="font-display text-base md:text-lg font-bold tracking-wider text-foreground group-hover:text-primary transition-colors duration-300">
-              LUMINA<span className="text-primary">TECH</span>
-            </span>
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {[
-              { label: "Ürünler", href: "#products" },
-              { label: "Kampanya", href: "#campaign" },
-              { label: "Quiz", href: "#quiz" },
-            ]?.map((item) => (
-              <a
-                key={item?.href}
-                href={item?.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-300 tracking-wide uppercase"
-              >
-                {item?.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Right Actions */}
-          <div className="flex items-center gap-3">
-            {/* User Menu */}
-            <UserMenu />
-
-            {/* Cart */}
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="h-12 flex items-center justify-between">
+            {/* Logo */}
             <Link
-              href="/cart"
-              className="relative flex items-center justify-center w-10 h-10 glass-card rounded-full hover:neon-border-cyan transition-all duration-300 group"
-              aria-label="Sepet"
+              href="/homepage"
+              className="flex items-center shrink-0"
             >
-              <Icon
-                name="ShoppingCartIcon"
-                size={18}
-                className="text-foreground group-hover:text-primary transition-colors duration-300"
-              />
-              {totalItems > 0 && (
-                <span
-                  className={`absolute -top-1 -right-1 w-5 h-5 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center font-display ${
-                    cartAnimating ? "animate-cart-bounce" : ""
-                  }`}
-                >
-                  {totalItems > 9 ? "9+" : totalItems}
-                </span>
-              )}
+              <AppLogo size={20} />
             </Link>
 
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden flex flex-col gap-1.5 w-8 group p-1"
-              aria-label="Menü"
-            >
-              <span
-                className={`block h-px bg-foreground transition-all duration-300 ${
-                  menuOpen
-                    ? "w-full rotate-45 translate-y-2" :"w-full group-hover:w-3/4"
-                }`}
-              />
-              <span
-                className={`block h-px bg-foreground transition-all duration-300 ${
-                  menuOpen ? "opacity-0 w-0" : "w-2/3 group-hover:w-full"
-                }`}
-              />
-              <span
-                className={`block h-px bg-foreground transition-all duration-300 ${
-                  menuOpen
-                    ? "w-full -rotate-45 -translate-y-2" :"w-full group-hover:w-1/2"
-                }`}
-              />
-            </button>
+            {/* Desktop Nav - Center */}
+            <nav className="hidden lg:flex items-center justify-center flex-1 px-8">
+              <div className="flex items-center gap-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href + item.label}
+                    href={item.href}
+                    className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </nav>
+
+            {/* Right Actions */}
+            <div className="flex items-center gap-4">
+              {/* Search */}
+              <button
+                onClick={() => setSearchOpen(!searchOpen)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Ara"
+              >
+                <Icon name="MagnifyingGlassIcon" size={18} />
+              </button>
+
+              {/* Cart */}
+              <Link
+                href="/cart"
+                className="relative text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Sepet"
+              >
+                <Icon name="ShoppingBagIcon" size={18} />
+                {totalItems > 0 && (
+                  <span
+                    className={`absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center ${
+                      cartAnimating ? "animate-cart-bounce" : ""
+                    }`}
+                  >
+                    {totalItems > 9 ? "9+" : totalItems}
+                  </span>
+                )}
+              </Link>
+
+              {/* User Menu */}
+              <UserMenu />
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="lg:hidden text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Menü"
+              >
+                {menuOpen ? (
+                  <Icon name="XMarkIcon" size={20} />
+                ) : (
+                  <Icon name="Bars2Icon" size={20} />
+                )}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Search Bar */}
+        {searchOpen && (
+          <div className="border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
+              <div className="relative max-w-2xl mx-auto">
+                <Icon
+                  name="MagnifyingGlassIcon"
+                  size={18}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+                />
+                <input
+                  type="text"
+                  placeholder="LuminaTech'te Ara"
+                  className="w-full bg-card rounded-xl py-3 pl-12 pr-4 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  autoFocus
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </header>
+
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden animate-fade-in">
-          {[
-            { label: "Ürünler", href: "#products" },
-            { label: "Kampanya", href: "#campaign" },
-            { label: "Quiz", href: "#quiz" },
-          ]?.map((item, i) => (
-            <a
-              key={item?.href}
-              href={item?.href}
-              onClick={() => setMenuOpen(false)}
-              className={`font-display text-2xl font-bold text-foreground hover:text-primary transition-colors duration-300 animate-fade-in-up delay-${(i + 1) * 100}`}
-            >
-              {item?.label}
-            </a>
-          ))}
-          <Link
-            href="/cart"
-            onClick={() => setMenuOpen(false)}
-            className="font-display text-2xl font-bold text-primary animate-fade-in-up delay-400"
-          >
-            Sepet {totalItems > 0 && `(${totalItems})`}
-          </Link>
-          <Link
-            href="/auth/login"
-            onClick={() => setMenuOpen(false)}
-            className="font-display text-2xl font-bold text-foreground hover:text-primary transition-colors duration-300 animate-fade-in-up delay-500"
-          >
-            Giriş Yap
-          </Link>
+        <div className="fixed inset-0 z-40 bg-background pt-12 lg:hidden animate-fade-in overflow-auto">
+          <div className="px-4 py-8 space-y-1">
+            {navItems.map((item, i) => (
+              <a
+                key={item.href + item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`block py-3 text-2xl font-semibold text-foreground hover:text-primary transition-colors animate-fade-in-up`}
+                style={{ animationDelay: `${i * 50}ms` }}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-6 border-t border-border mt-6">
+              <Link
+                href="/cart"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 py-3 text-lg text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Icon name="ShoppingBagIcon" size={20} />
+                Sepet {totalItems > 0 && `(${totalItems})`}
+              </Link>
+              <Link
+                href="/auth/login"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-3 py-3 text-lg text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Icon name="UserIcon" size={20} />
+                Giriş Yap
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </>

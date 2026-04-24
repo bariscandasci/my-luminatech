@@ -6,54 +6,54 @@ import { useCart } from "@/context/CartContext";
 const questions = [
   {
     id: "lifestyle",
-    question: "Günlük hayatın nasıl geçiyor?",
-    emoji: "⚡",
+    question: "Günlük hayatında en çok hangisini yapıyorsun?",
     options: [
-      { value: "active", label: "Spor & Aktif Yaşam", icon: "BoltIcon" },
-      { value: "music", label: "Müzik & Eğlence", icon: "MusicalNoteIcon" },
-      { value: "social", label: "Sosyal & Parti", icon: "UserGroupIcon" },
+      { value: "active", label: "Spor ve fitness", icon: "BoltIcon" },
+      { value: "music", label: "Müzik dinleme", icon: "MusicalNoteIcon" },
+      { value: "social", label: "Sosyal etkinlikler", icon: "UserGroupIcon" },
     ],
   },
   {
     id: "priority",
-    question: "Teknolojide en çok ne önemli?",
-    emoji: "🎯",
+    question: "Teknolojide en çok neye önem veriyorsun?",
     options: [
-      { value: "health", label: "Sağlık Takibi", icon: "HeartIcon" },
-      { value: "sound", label: "Ses Kalitesi", icon: "SpeakerWaveIcon" },
-      { value: "battery", label: "Uzun Pil Ömrü", icon: "BatteryFullIcon" },
+      { value: "health", label: "Sağlık takibi", icon: "HeartIcon" },
+      { value: "sound", label: "Ses kalitesi", icon: "SpeakerWaveIcon" },
+      { value: "battery", label: "Pil ömrü", icon: "BoltIcon" },
     ],
   },
   {
     id: "style",
-    question: "Hangi estetik seni yansıtıyor?",
-    emoji: "✨",
+    question: "Hangi tasarım tarzını tercih ediyorsun?",
     options: [
-      { value: "minimal", label: "Minimal & Şık", icon: "Squares2X2Icon" },
-      { value: "bold", label: "Cesur & Göz Alıcı", icon: "SparklesIcon" },
-      { value: "sporty", label: "Sportif & Dinamik", icon: "TrophyIcon" },
+      { value: "minimal", label: "Minimal", icon: "Squares2X2Icon" },
+      { value: "bold", label: "Dikkat çekici", icon: "SparklesIcon" },
+      { value: "sporty", label: "Sportif", icon: "TrophyIcon" },
     ],
   },
 ];
 
-const results: Record<string, { product: string; desc: string; price: string; color: "cyan" | "purple" }> = {
+const results: Record<string, { product: string; desc: string; price: number; id: string; image: string }> = {
   active: {
     product: "Aura Wristband",
-    desc: "7/24 sağlık takibi ve GPS ile aktif yaşamın için mükemmel eşlik.",
-    price: "₺1.299",
-    color: "cyan",
+    desc: "7/24 sağlık takibi ve GPS ile aktif yaşam tarzın için ideal.",
+    price: 1299,
+    id: "aura-wristband",
+    image: "https://images.unsplash.com/photo-1651406101815-50d85040feb2",
   },
   music: {
     product: "Sonic Buds",
-    desc: "40dB ANC ve kristal ses kalitesiyle müziğe gömülürsün.",
-    price: "₺899",
-    color: "purple",
+    desc: "40dB ANC ile müziğin tadını doyasıya çıkar.",
+    price: 899,
+    id: "sonic-buds",
+    image: "https://images.unsplash.com/photo-1675361771537-e099ff32b305",
   },
   social: {
     product: "Nova Speaker",
-    desc: "360° surround ses ve 30 saat pil ile her ortamı doldur.",
-    price: "₺1.599",
-    color: "cyan",
+    desc: "360° ses ile her ortamda partinin yıldızı ol.",
+    price: 1599,
+    id: "nova-speaker",
+    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1771387fe-1767285681665.png",
   },
 };
 
@@ -91,7 +91,7 @@ export default function AIStyleQuiz() {
         setAnswers(newAnswers);
         setStep("result");
       }
-    }, 400);
+    }, 300);
   };
 
   const handleReset = () => {
@@ -106,108 +106,48 @@ export default function AIStyleQuiz() {
 
   const handleAddToCart = () => {
     if (!result) return;
-    const productMap: Record<string, { id: string; price: number; image: string }> = {
-      "Aura Wristband": {
-        id: "aura-wristband",
-        price: 1299,
-        image:
-          "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop",
-      },
-      "Sonic Buds": {
-        id: "sonic-buds",
-        price: 899,
-        image:
-          "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=600&auto=format&fit=crop",
-      },
-      "Nova Speaker": {
-        id: "nova-speaker",
-        price: 1599,
-        image:
-          "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?q=80&w=600&auto=format&fit=crop",
-      },
-    };
-    const p = productMap[result.product];
-    if (p) {
-      addItem({ id: p.id, name: result.product, price: p.price, image: p.image });
-      setAddedToCart(true);
-    }
+    addItem({
+      id: result.id,
+      name: result.product,
+      price: result.price,
+      image: result.image,
+    });
+    setAddedToCart(true);
   };
 
   return (
-    <section
-      id="quiz"
-      className="py-20 md:py-28 relative overflow-hidden"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-0 left-0 right-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(0,212,255,0.4), rgba(124,58,237,0.4), transparent)",
-          }}
-        />
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(0,212,255,0.4), transparent)",
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 50%, #00d4ff, transparent 50%), radial-gradient(circle at 75% 50%, #7c3aed, transparent 50%)",
-          }}
-        />
-      </div>
-
-      <div className="max-w-3xl mx-auto px-4 md:px-6 relative z-10">
-        {/* Header */}
+    <section id="quiz" className="py-16 md:py-24 bg-card">
+      <div className="max-w-3xl mx-auto px-4 md:px-6">
+        {/* Section Header */}
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-display font-bold text-secondary tracking-widest uppercase mb-4 glass-card px-4 py-2 rounded-full border border-secondary/20">
-            AI Style Quiz
-          </span>
-          <h2 className="font-display text-3xl md:text-4xl font-black text-foreground tracking-tight">
-            Sana Özel{" "}
-            <span className="neon-text-purple">Gadget</span>
-            <br />
-            <span className="text-muted-foreground font-light text-2xl">
-              bulmana yardım edelim
-            </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground tracking-tight mb-4">
+            Sana uygun ürünü bul
           </h2>
+          <p className="text-muted-foreground text-lg">
+            Birkaç soruyla ihtiyacına en uygun LuminaTech ürününü keşfet.
+          </p>
         </div>
 
-        {/* Quiz Box */}
-        <div className="glass-card rounded-3xl p-8 md:p-10 neon-border-purple relative overflow-hidden">
-          {/* Scan line animation */}
-          <div
-            className="absolute left-0 right-0 h-px opacity-20 pointer-events-none"
-            style={{
-              background: "linear-gradient(90deg, transparent, #00d4ff, transparent)",
-              animation: "scanLine 4s linear infinite",
-            }}
-          />
-
+        {/* Quiz Container */}
+        <div className="bg-background rounded-3xl p-8 md:p-12">
           {/* INTRO */}
           {step === "intro" && (
             <div className="text-center animate-fade-in">
-              <div className="text-6xl mb-6">🤖</div>
-              <h3 className="font-display text-2xl font-black text-foreground mb-3">
-                3 Soru, 1 Mükemmel Eşleşme
+              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                <Icon name="SparklesIcon" size={32} className="text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-foreground mb-3">
+                Ürün Öneri Testi
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-sm mx-auto">
-                Yaşam tarzına göre en uygun Lumina Tech ürününü sana önerelim.
-                30 saniyede tamamla!
+              <p className="text-muted-foreground mb-8 max-w-sm mx-auto">
+                3 basit soru ile yaşam tarzına en uygun LuminaTech ürününü keşfet.
               </p>
               <button
                 onClick={handleStart}
-                className="group relative overflow-hidden inline-flex items-center gap-3 px-10 py-4 rounded-full font-display font-bold text-sm tracking-widest uppercase text-primary-foreground bg-secondary hover:shadow-neon-purple hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:bg-accent transition-colors"
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
-                <span className="relative z-10">Quize Başla</span>
-                <Icon name="ArrowRightIcon" size={16} className="relative z-10" />
+                Teste Başla
+                <Icon name="ArrowRightIcon" size={18} />
               </button>
             </div>
           )}
@@ -216,53 +156,53 @@ export default function AIStyleQuiz() {
           {step === "quiz" && (
             <div className="animate-fade-in">
               {/* Progress */}
-              <div className="flex items-center gap-3 mb-8">
-                <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
+              <div className="flex items-center gap-3 mb-10">
+                {questions.map((_, i) => (
                   <div
-                    className="h-full rounded-full transition-all duration-500"
-                    style={{
-                      width: `${((currentQ + 1) / questions.length) * 100}%`,
-                      background: "linear-gradient(90deg, #7c3aed, #00d4ff)",
-                    }}
+                    key={i}
+                    className={`flex-1 h-1 rounded-full transition-colors ${
+                      i <= currentQ ? "bg-primary" : "bg-muted"
+                    }`}
                   />
-                </div>
-                <span className="text-xs font-display text-muted-foreground whitespace-nowrap">
-                  {currentQ + 1} / {questions.length}
-                </span>
+                ))}
               </div>
 
               {/* Question */}
-              <div className="text-center mb-8">
-                <div className="text-4xl mb-4">
-                  {questions[currentQ].emoji}
-                </div>
+              <div className="text-center mb-10">
+                <p className="text-xs text-primary font-medium mb-2">
+                  Soru {currentQ + 1} / {questions.length}
+                </p>
                 <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">
                   {questions[currentQ].question}
                 </h3>
               </div>
 
               {/* Options */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="space-y-3">
                 {questions[currentQ].options.map((opt) => (
                   <button
                     key={opt.value}
                     onClick={() => handleOption(opt.value)}
-                    className={`group relative overflow-hidden glass-card rounded-2xl p-5 text-left transition-all duration-300 hover:-translate-y-1 border ${
+                    className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-200 ${
                       selected === opt.value
-                        ? "border-primary/60 bg-primary/10 scale-95" :"border-border hover:border-primary/30 hover:bg-primary/5"
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-card hover:bg-muted border border-border"
                     }`}
                   >
-                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent" />
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                    <div
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                        selected === opt.value
+                          ? "bg-white/20"
+                          : "bg-primary/10"
+                      }`}
+                    >
                       <Icon
                         name={opt.icon as "BoltIcon"}
                         size={20}
-                        className="text-primary"
+                        className={selected === opt.value ? "text-white" : "text-primary"}
                       />
                     </div>
-                    <p className="font-display text-sm font-bold text-foreground">
-                      {opt.label}
-                    </p>
+                    <span className="font-medium">{opt.label}</span>
                   </button>
                 ))}
               </div>
@@ -272,55 +212,36 @@ export default function AIStyleQuiz() {
           {/* RESULT */}
           {step === "result" && result && (
             <div className="text-center animate-fade-in">
-              <div className="text-5xl mb-4">🎯</div>
-              <p className="text-xs font-display font-bold text-primary tracking-widest uppercase mb-2">
-                Sana Özel Öneri
-              </p>
-              <h3 className="font-display text-3xl font-black mb-2">
-                <span
-                  className={
-                    result.color === "cyan" ?"neon-text-cyan" :"neon-text-purple"
-                  }
-                >
-                  {result.product}
-                </span>
+              <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
+                <Icon name="CheckIcon" size={32} className="text-green-500" />
+              </div>
+              <p className="text-xs text-primary font-medium mb-2">Sana önerimiz</p>
+              <h3 className="font-display text-3xl font-black text-foreground mb-2">
+                {result.product}
               </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm mx-auto">
+              <p className="text-muted-foreground mb-6 max-w-sm mx-auto">
                 {result.desc}
               </p>
-              <div
-                className={`font-display text-4xl font-black mb-8 ${
-                  result.color === "cyan" ? "neon-text-cyan" : "neon-text-purple"
-                }`}
-              >
-                {result.price}
-              </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <p className="font-display text-3xl font-bold text-foreground mb-8">
+                {result.price.toLocaleString("tr-TR")} TL
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={handleAddToCart}
                   disabled={addedToCart}
-                  className={`group relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-display font-bold text-sm tracking-widest uppercase transition-all duration-300 ${
+                  className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium transition-all ${
                     addedToCart
                       ? "bg-green-500 text-white"
-                      : result.color === "cyan" ?"bg-primary text-primary-foreground hover:shadow-neon-cyan hover:scale-105" :"bg-secondary text-white hover:shadow-neon-purple hover:scale-105"
+                      : "bg-primary text-primary-foreground hover:bg-accent"
                   }`}
                 >
-                  <span className="relative z-10">
-                    {addedToCart ? "✓ Sepete Eklendi!" : "Sepete Ekle"}
-                  </span>
-                  {!addedToCart && (
-                    <Icon
-                      name="ShoppingCartIcon"
-                      size={16}
-                      className="relative z-10"
-                    />
-                  )}
+                  {addedToCart ? "Sepete Eklendi" : "Sepete Ekle"}
                 </button>
                 <button
                   onClick={handleReset}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-display font-bold text-sm tracking-widest uppercase glass-card border border-border hover:border-primary/30 text-muted-foreground hover:text-foreground transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium bg-card border border-border text-foreground hover:bg-muted transition-colors"
                 >
-                  <Icon name="ArrowPathIcon" size={16} />
+                  <Icon name="ArrowPathIcon" size={18} />
                   Tekrar Dene
                 </button>
               </div>

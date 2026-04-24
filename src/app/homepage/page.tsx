@@ -2,36 +2,39 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "./components/HeroSection";
-import CampaignSection from "./components/CampaignSection";
 import ProductShowcase from "./components/ProductShowcase";
+import SpecialOffers from "./components/SpecialOffers";
+import Accessories from "./components/Accessories";
+import CampaignSection from "./components/CampaignSection";
 import AIStyleQuiz from "./components/AIStyleQuiz";
 import CTABanner from "./components/CTABanner";
-
-// DÜZELTİLMİŞ İTHALAT (IMPORT):
-// @/ işareti src klasörünü temsil eder. Dosyan src/components içindeyse yol budur:
-import EnergyTester from "@/components/EnergyTester"; 
-
-// NOT: Eğer dosya hala src/components/ui içindeyse yukarıdaki satırı şu şekilde değiştir:
-// import EnergyTester from "@/components/ui/EnergyTester";
 
 export default function HomepagePage() {
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Header />
       
+      {/* Apple-style Hero Sections */}
       <HeroSection />
       
-      <CampaignSection />
-      
+      {/* Product Showcase */}
       <ProductShowcase />
       
-      {/* YAPAY ZEKA OYUNLAŞTIRMA BÖLÜMÜ */}
-      <section className="py-16">
-        <EnergyTester />
+      {/* Special Offers & Discounts */}
+      <SpecialOffers />
+      
+      {/* Accessories */}
+      <section id="accessories">
+        <Accessories />
       </section>
       
+      {/* Why LuminaTech - Features */}
+      <CampaignSection />
+      
+      {/* AI Product Recommendation Quiz */}
       <AIStyleQuiz />
       
+      {/* Support & Quick Links */}
       <CTABanner />
       
       <Footer />
