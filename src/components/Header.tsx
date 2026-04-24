@@ -4,6 +4,7 @@ import Link from "next/link";
 import AppLogo from "@/components/ui/AppLogo";
 import Icon from "@/components/ui/AppIcon";
 import { useCart } from "@/context/CartContext";
+import UserMenu from "@/components/UserMenu";
 
 export default function Header() {
   const { totalItems } = useCart();
@@ -67,6 +68,9 @@ export default function Header() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
+            {/* User Menu */}
+            <UserMenu />
+
             {/* Cart */}
             <Link
               href="/cart"
@@ -139,6 +143,13 @@ export default function Header() {
             className="font-display text-2xl font-bold text-primary animate-fade-in-up delay-400"
           >
             Sepet {totalItems > 0 && `(${totalItems})`}
+          </Link>
+          <Link
+            href="/auth/login"
+            onClick={() => setMenuOpen(false)}
+            className="font-display text-2xl font-bold text-foreground hover:text-primary transition-colors duration-300 animate-fade-in-up delay-500"
+          >
+            Giriş Yap
           </Link>
         </div>
       )}
