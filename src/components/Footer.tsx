@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const footerSections = [
   {
-    title: "Alışveriş ve Bilgi",
+    title: "Alisveris ve Bilgi",
     links: [
-      { label: "Mağaza", href: "#products" },
+      { label: "Magaza", href: "#products" },
       { label: "Aura Wristband", href: "#" },
       { label: "Sonic Buds", href: "#" },
       { label: "Nova Speaker", href: "#" },
@@ -15,58 +15,58 @@ const footerSections = [
   {
     title: "Hesap",
     links: [
-      { label: "LuminaTech Hesabını Yönet", href: "/hesabim" },
-      { label: "Sipariş Durumu", href: "/siparislerim" },
-      { label: "Alışveriş Sepeti", href: "/cart" },
+      { label: "LuminaTech Hesabini Yonet", href: "/hesabim" },
+      { label: "Siparis Durumu", href: "/siparislerim" },
+      { label: "Alisveris Sepeti", href: "/cart" },
     ],
   },
   {
-    title: "LuminaTech Mağazası",
+    title: "LuminaTech Magazasi",
     links: [
-      { label: "Mağaza Bul", href: "#" },
-      { label: "Eğitim İndirimi", href: "#" },
+      { label: "Magaza Bul", href: "#" },
+      { label: "Egitim Magazasi", href: "#" },
       { label: "Kurumsal", href: "#" },
     ],
   },
   {
-    title: "LuminaTech Değerleri",
+    title: "LuminaTech Degerleri",
     links: [
-      { label: "Erişilebilirlik", href: "#" },
-      { label: "Çevre", href: "#" },
+      { label: "Erisilebilirlik", href: "#" },
+      { label: "Cevre", href: "#" },
       { label: "Gizlilik", href: "#" },
     ],
   },
   {
-    title: "Hakkımızda",
+    title: "Hakkimizda",
     links: [
       { label: "Kariyer", href: "#" },
-      { label: "Yatırımcı İlişkileri", href: "#" },
-      { label: "İletişim", href: "#" },
+      { label: "Yatirimci Iliskileri", href: "#" },
+      { label: "Iletisim", href: "#" },
     ],
   },
 ];
 
 const bottomLinks = [
-  { label: "Gizlilik Politikası", href: "#" },
-  { label: "Kullanım Şartları", href: "#" },
-  { label: "Satış ve İade", href: "#" },
+  { label: "Gizlilik Politikasi", href: "#" },
+  { label: "Kullanim Sartlari", href: "#" },
+  { label: "Satis ve Iade", href: "#" },
   { label: "Hukuki", href: "#" },
-  { label: "Site Haritası", href: "#" },
+  { label: "Site Haritasi", href: "#" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <footer className="bg-[#f5f5f7]">
+      <div className="max-w-[980px] mx-auto px-4">
         {/* Promo Text */}
-        <div className="py-4 border-b border-border">
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            Ücretsiz kargo ile alışveriş yap. Ücretsiz ve kolay iade. Daha fazla alışveriş yöntemi için{" "}
-            <Link href="#" className="text-primary hover:underline">
-              en yakın LuminaTech mağazasını
+        <div className="py-4 border-b border-[#d2d2d7]">
+          <p className="text-[12px] text-[#6e6e73] leading-relaxed">
+            Ucretsiz kargo ile alisveris yap. Ucretsiz ve kolay iade. Daha fazla alisveris yontemi icin{" "}
+            <Link href="#" className="text-[#0066cc] hover:underline">
+              en yakin LuminaTech magazasini
             </Link>{" "}
             bul veya{" "}
-            <Link href="#" className="text-primary hover:underline">
+            <Link href="#" className="text-[#0066cc] hover:underline">
               444 LUMINA
             </Link>{" "}
             ara.
@@ -74,10 +74,10 @@ export default function Footer() {
         </div>
 
         {/* Footer Links Grid */}
-        <div className="py-8 grid grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="py-6 grid grid-cols-2 md:grid-cols-5 gap-6">
           {footerSections.map((section) => (
             <div key={section.title}>
-              <h4 className="text-xs font-semibold text-foreground mb-4">
+              <h4 className="text-[12px] font-semibold text-[#1d1d1f] mb-2.5">
                 {section.title}
               </h4>
               <ul className="space-y-2">
@@ -85,7 +85,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-[12px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -97,29 +97,29 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="py-4 border-t border-border">
+        <div className="py-4 border-t border-[#d2d2d7]">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground">
-              Copyright © 2026 LuminaTech Tüm hakları saklıdır.
+            <p className="text-[12px] text-[#6e6e73]">
+              Copyright &copy; 2026 LuminaTech Tum haklari saklidir.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               {bottomLinks.map((link, i) => (
                 <React.Fragment key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-[12px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
                   >
                     {link.label}
                   </Link>
                   {i < bottomLinks.length - 1 && (
-                    <span className="text-border">|</span>
+                    <span className="text-[#d2d2d7]">|</span>
                   )}
                 </React.Fragment>
               ))}
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mt-4">
-            Türkiye
+          <p className="text-[12px] text-[#6e6e73] mt-3">
+            Turkiye
           </p>
         </div>
       </div>

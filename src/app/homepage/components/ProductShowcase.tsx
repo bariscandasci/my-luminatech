@@ -2,46 +2,119 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import AppImage from "@/components/ui/AppImage";
-import Icon from "@/components/ui/AppIcon";
 import { useCart } from "@/context/CartContext";
 
 const products = [
   {
+    id: "aura-wristband-pro",
+    name: "Aura Wristband Pro",
+    tagline: "Daha güçlü. Daha parlak. Daha Pro.",
+    price: 1299,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600",
+    colors: [
+      { name: "Dogal Titanyum", hex: "#9A9A9D" },
+      { name: "Mavi Titanyum", hex: "#394E6A" },
+      { name: "Beyaz Titanyum", hex: "#F5F5F0" },
+      { name: "Siyah Titanyum", hex: "#3A3A3C" },
+    ],
+    isNew: true,
+  },
+  {
     id: "aura-wristband",
     name: "Aura Wristband",
-    tagline: "Akıllı sağlık takibi",
-    price: 1299,
-    originalPrice: 1799,
-    image: "https://images.unsplash.com/photo-1651406101815-50d85040feb2",
-    colors: ["Gece Siyahı", "Okyanus Mavisi", "Gümüş"],
+    tagline: "Performans ve tarz bir arada.",
+    price: 999,
+    image: "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=600",
+    colors: [
+      { name: "Gece Yarisi", hex: "#1d1d1f" },
+      { name: "Yildiz Isigi", hex: "#F9F3EE" },
+      { name: "Kirmizi", hex: "#BF4F51" },
+    ],
+    isNew: true,
+  },
+  {
+    id: "aura-wristband-se",
+    name: "Aura Wristband SE",
+    tagline: "Sevilen ozellikler, uygun fiyat.",
+    price: 699,
+    image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=600",
+    colors: [
+      { name: "Gece Yarisi", hex: "#1d1d1f" },
+      { name: "Yildiz Isigi", hex: "#F9F3EE" },
+    ],
+    isNew: false,
+  },
+  {
+    id: "sonic-buds-pro",
+    name: "Sonic Buds Pro",
+    tagline: "Adaptif Ses. Kisisellestirilmis deneyim.",
+    price: 899,
+    image: "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?w=600",
+    colors: [
+      { name: "Beyaz", hex: "#F5F5F0" },
+      { name: "Siyah", hex: "#1d1d1f" },
+    ],
     isNew: true,
   },
   {
     id: "sonic-buds",
     name: "Sonic Buds",
-    tagline: "Aktif gürültü engelleme",
-    price: 899,
-    originalPrice: 1299,
-    image: "https://images.unsplash.com/photo-1675361771537-e099ff32b305",
-    colors: ["Siyah", "Beyaz", "Mor"],
+    tagline: "Etkileyici ses, rahat kullanim.",
+    price: 599,
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600",
+    colors: [
+      { name: "Beyaz", hex: "#F5F5F0" },
+      { name: "Siyah", hex: "#1d1d1f" },
+      { name: "Pembe", hex: "#F2D7D9" },
+    ],
+    isNew: false,
+  },
+  {
+    id: "nova-speaker-max",
+    name: "Nova Speaker Max",
+    tagline: "Buyuleyici uzaysal ses.",
+    price: 1599,
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600",
+    colors: [
+      { name: "Uzay Grisi", hex: "#86868B" },
+      { name: "Gece Yarisi", hex: "#1d1d1f" },
+    ],
     isNew: true,
   },
   {
     id: "nova-speaker",
     name: "Nova Speaker",
-    tagline: "360° surround ses",
-    price: 1599,
-    originalPrice: 2199,
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_1771387fe-1767285681665.png",
-    colors: ["Karbon", "Titanyum"],
+    tagline: "360 derece ses deneyimi.",
+    price: 1199,
+    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600",
+    colors: [
+      { name: "Siyah", hex: "#1d1d1f" },
+      { name: "Beyaz", hex: "#F5F5F0" },
+      { name: "Mavi", hex: "#3478F6" },
+    ],
     isNew: false,
+  },
+  {
+    id: "nova-speaker-mini",
+    name: "Nova Speaker Mini",
+    tagline: "Kucuk ama guclu.",
+    price: 799,
+    image: "https://images.unsplash.com/photo-1589003077984-894e133dabab?w=600",
+    colors: [
+      { name: "Turuncu", hex: "#FF9500" },
+      { name: "Mavi", hex: "#007AFF" },
+      { name: "Yesil", hex: "#34C759" },
+      { name: "Pembe", hex: "#FF2D55" },
+      { name: "Sari", hex: "#FFCC00" },
+    ],
+    isNew: true,
   },
 ];
 
 function ProductCard({ product }: { product: (typeof products)[0] }) {
   const { addItem } = useCart();
-  const [added, setAdded] = useState(false);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [added, setAdded] = useState(false);
 
   const handleAdd = () => {
     addItem({
@@ -55,93 +128,72 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
   };
 
   return (
-    <div className="group bg-card rounded-3xl p-6 md:p-8 transition-all duration-500 hover:bg-muted">
+    <div className="bg-[#fbfbfd] rounded-2xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
       {/* New Badge */}
       {product.isNew && (
-        <div className="mb-4">
-          <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-            Yeni
-          </span>
-        </div>
+        <p className="text-[#bf4800] text-[12px] font-medium mb-1">Yeni</p>
       )}
 
+      {/* Product Name */}
+      <h3 className="text-[24px] font-semibold text-[#1d1d1f] mb-0.5">
+        {product.name}
+      </h3>
+      <p className="text-[14px] text-[#6e6e73] mb-4">{product.tagline}</p>
+
+      {/* Price */}
+      <p className="text-[14px] text-[#1d1d1f] mb-4">
+        {product.price.toLocaleString("tr-TR")} TL&apos;den baslayan fiyatlarla
+      </p>
+
       {/* Product Image */}
-      <div className="relative aspect-square mb-6 overflow-hidden rounded-2xl">
+      <div className="relative aspect-square mb-6 flex items-center justify-center">
         <AppImage
           src={product.image}
           alt={product.name}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
+          width={300}
+          height={300}
+          className="object-contain w-full h-full"
         />
       </div>
 
       {/* Color Options */}
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center justify-center gap-2 mb-5">
         {product.colors.map((color) => (
           <button
-            key={color}
+            key={color.name}
             onClick={() => setSelectedColor(color)}
-            className={`w-4 h-4 rounded-full transition-all duration-200 ${
-              selectedColor === color
-                ? "ring-2 ring-primary ring-offset-2 ring-offset-card"
-                : "opacity-60 hover:opacity-100"
+            className={`w-[14px] h-[14px] rounded-full transition-all duration-200 ${
+              selectedColor.name === color.name
+                ? "ring-2 ring-[#0071e3] ring-offset-2"
+                : "hover:ring-2 hover:ring-[#d2d2d7] hover:ring-offset-1"
             }`}
-            style={{
-              backgroundColor:
-                color === "Gece Siyahı" || color === "Siyah" || color === "Karbon"
-                  ? "#1a1a2e"
-                  : color === "Okyanus Mavisi"
-                  ? "#00d4ff"
-                  : color === "Gümüş" || color === "Titanyum"
-                  ? "#94a3b8"
-                  : color === "Beyaz"
-                  ? "#e2e8f0"
-                  : color === "Mor"
-                  ? "#7c3aed"
-                  : "#64748b",
-            }}
-            title={color}
+            style={{ backgroundColor: color.hex }}
+            title={color.name}
           />
         ))}
       </div>
 
-      {/* Product Info */}
-      <div className="text-center">
-        <h3 className="font-display text-xl md:text-2xl font-bold text-foreground mb-1">
-          {product.name}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-4">{product.tagline}</p>
+      {/* Selected Color Name */}
+      <p className="text-[12px] text-[#6e6e73] mb-4">{selectedColor.name}</p>
 
-        {/* Price */}
-        <div className="flex items-center justify-center gap-3 mb-6">
-          <span className="text-2xl font-display font-bold text-foreground">
-            {product.price.toLocaleString("tr-TR")} TL
-          </span>
-          <span className="text-sm text-muted-foreground line-through">
-            {product.originalPrice.toLocaleString("tr-TR")} TL
-          </span>
-        </div>
-
-        {/* Actions */}
-        <div className="flex flex-col gap-3">
-          <Link
-            href="#"
-            className="text-primary hover:text-accent transition-colors font-medium text-sm"
-          >
-            Daha Fazla Bilgi &rarr;
-          </Link>
-          <button
-            onClick={handleAdd}
-            className={`w-full py-3 px-6 rounded-full font-medium text-sm transition-all duration-300 ${
-              added
-                ? "bg-green-500 text-white"
-                : "bg-primary text-primary-foreground hover:bg-accent"
-            }`}
-          >
-            {added ? "Sepete Eklendi" : "Sepete Ekle"}
-          </button>
-        </div>
+      {/* Actions */}
+      <div className="space-y-2">
+        <Link
+          href="#"
+          className="block text-[#0066cc] hover:underline text-[14px]"
+        >
+          Daha fazla bilgi &gt;
+        </Link>
+        <button
+          onClick={handleAdd}
+          className={`w-full py-2.5 px-6 rounded-full text-[14px] font-medium transition-all duration-300 ${
+            added
+              ? "bg-[#34c759] text-white"
+              : "bg-[#0071e3] text-white hover:bg-[#0077ed]"
+          }`}
+        >
+          {added ? "Eklendi" : "Sepete Ekle"}
+        </button>
       </div>
     </div>
   );
@@ -149,33 +201,32 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
 
 export default function ProductShowcase() {
   return (
-    <section id="products" className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section id="products" className="py-16 md:py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground tracking-tight mb-4">
-            Alışveriş
+        <div className="mb-10">
+          <h2 className="text-[32px] md:text-[40px] font-semibold text-[#1d1d1f] mb-1">
+            Yeni ve populer urunler.
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            En yeni LuminaTech ürünlerini keşfet. Ücretsiz kargo ve 30 gün iade garantisi.
+          <p className="text-[21px] text-[#6e6e73]">
+            En yeni modelleri kesfet ve sepetine ekle.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
-        {/* Compare Section */}
-        <div className="mt-16 text-center">
+        {/* Compare Link */}
+        <div className="mt-10 text-center">
           <Link
             href="#"
-            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors font-medium"
+            className="text-[#0066cc] hover:underline text-[17px]"
           >
-            <Icon name="Squares2X2Icon" size={18} />
-            Tüm modelleri karşılaştır
+            Tum modelleri karsilastir &gt;
           </Link>
         </div>
       </div>

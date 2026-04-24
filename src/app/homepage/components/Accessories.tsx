@@ -1,57 +1,78 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef, useState } from "react";
 import AppImage from "@/components/ui/AppImage";
-import Icon from "@/components/ui/AppIcon";
 import { useCart } from "@/context/CartContext";
 
 const accessories = [
   {
-    id: "sport-band",
-    name: "Spor Kayış",
+    id: "sport-band-ocean",
+    name: "Spor Kayis - Okyanus Mavisi",
     category: "Aura Wristband",
-    price: 299,
-    image: "https://images.unsplash.com/photo-1434056886845-dbd065734b29?w=400&h=400&fit=crop",
-    colors: ["Siyah", "Turuncu", "Yeşil"],
+    price: 349,
+    image: "https://images.unsplash.com/photo-1434056886845-dbd065734b29?w=400",
   },
   {
-    id: "leather-band",
-    name: "Deri Kayış",
+    id: "braided-loop",
+    name: "Orgu Bileklik",
     category: "Aura Wristband",
-    price: 499,
-    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400&h=400&fit=crop",
-    colors: ["Kahverengi", "Siyah"],
+    price: 449,
+    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=400",
+  },
+  {
+    id: "leather-link",
+    name: "Deri Baglanti Kayis",
+    category: "Aura Wristband",
+    price: 599,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+  },
+  {
+    id: "milanese-loop",
+    name: "Milanese Bileklik",
+    category: "Aura Wristband",
+    price: 699,
+    image: "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?w=400",
+  },
+  {
+    id: "magnetic-charger",
+    name: "MagSafe Sarj Cihazi",
+    category: "Tum Urunler",
+    price: 299,
+    image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=400",
   },
   {
     id: "charging-dock",
-    name: "Şarj İstasyonu",
-    category: "Tüm Ürünler",
-    price: 349,
-    image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e5?w=400&h=400&fit=crop",
-    colors: ["Beyaz", "Siyah"],
+    name: "Duo Sarj Istasyonu",
+    category: "Tum Urunler",
+    price: 899,
+    image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400",
   },
   {
     id: "carrying-case",
-    name: "Taşıma Çantası",
+    name: "Sonic Buds Kilifi",
     category: "Sonic Buds",
-    price: 199,
-    image: "https://images.unsplash.com/photo-1590658165737-15a047b7c0b0?w=400&h=400&fit=crop",
-    colors: ["Siyah"],
+    price: 249,
+    image: "https://images.unsplash.com/photo-1590658165737-15a047b7c0b0?w=400",
   },
   {
     id: "ear-tips",
     name: "Kulak Ucu Seti",
     category: "Sonic Buds",
     price: 149,
-    image: "https://images.unsplash.com/photo-1598331668826-20cecc596b86?w=400&h=400&fit=crop",
-    colors: ["Standart"],
+    image: "https://images.unsplash.com/photo-1598331668826-20cecc596b86?w=400",
   },
   {
-    id: "power-bank",
-    name: "Taşınabilir Şarj",
-    category: "Tüm Ürünler",
-    price: 599,
-    image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=400&h=400&fit=crop",
-    colors: ["Siyah", "Gümüş"],
+    id: "power-adapter",
+    name: "20W USB-C Guc Adaptoru",
+    category: "Tum Urunler",
+    price: 199,
+    image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400",
+  },
+  {
+    id: "travel-case",
+    name: "Seyahat Cantasi",
+    category: "Nova Speaker",
+    price: 349,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
   },
 ];
 
@@ -71,47 +92,38 @@ function AccessoryCard({ accessory }: { accessory: (typeof accessories)[0] }) {
   };
 
   return (
-    <div className="min-w-[260px] md:min-w-[280px] snap-start">
-      <div className="bg-card rounded-2xl p-4 group hover:bg-muted transition-colors h-full">
+    <div className="min-w-[200px] md:min-w-[240px] snap-start flex-shrink-0">
+      <div className="bg-[#fbfbfd] rounded-2xl p-4 h-full">
         {/* Image */}
-        <div className="relative aspect-square mb-4 overflow-hidden rounded-xl">
+        <div className="aspect-square mb-3 flex items-center justify-center overflow-hidden rounded-xl bg-white">
           <AppImage
             src={accessory.image}
             alt={accessory.name}
-            fill
-            sizes="280px"
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            width={200}
+            height={200}
+            className="object-contain w-full h-full"
           />
         </div>
 
         {/* Info */}
         <div>
-          <p className="text-xs text-primary mb-1">{accessory.category}</p>
-          <h4 className="font-display font-bold text-foreground mb-2">
+          <p className="text-[11px] text-[#bf4800] mb-0.5">{accessory.category}</p>
+          <h4 className="text-[14px] font-semibold text-[#1d1d1f] mb-1 line-clamp-2">
             {accessory.name}
           </h4>
-          <p className="text-sm text-muted-foreground mb-3">
-            {accessory.colors.join(", ")}
+          <p className="text-[14px] text-[#1d1d1f] mb-3">
+            {accessory.price.toLocaleString("tr-TR")} TL
           </p>
-          <div className="flex items-center justify-between">
-            <span className="font-display font-bold text-foreground">
-              {accessory.price} TL
-            </span>
-            <button
-              onClick={handleAdd}
-              className={`p-2 rounded-full transition-all duration-300 ${
-                added
-                  ? "bg-green-500 text-white"
-                  : "bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground"
-              }`}
-            >
-              {added ? (
-                <Icon name="CheckIcon" size={18} />
-              ) : (
-                <Icon name="PlusIcon" size={18} />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={handleAdd}
+            className={`w-full py-2 px-4 rounded-full text-[12px] font-medium transition-all duration-300 ${
+              added
+                ? "bg-[#34c759] text-white"
+                : "bg-[#0071e3] text-white hover:bg-[#0077ed]"
+            }`}
+          >
+            {added ? "Eklendi" : "Sepete Ekle"}
+          </button>
         </div>
       </div>
     </div>
@@ -123,7 +135,7 @@ export default function Accessories() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
+      const scrollAmount = 260;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -132,16 +144,16 @@ export default function Accessories() {
   };
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-[1200px] mx-auto px-4">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-8">
           <div>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-black text-foreground tracking-tight mb-2">
-              Aksesuarlar
+            <h2 className="text-[32px] md:text-[40px] font-semibold text-[#1d1d1f] mb-1">
+              Aksesuarlar.
             </h2>
-            <p className="text-muted-foreground">
-              LuminaTech ürünlerini tamamlayan aksesuarlar
+            <p className="text-[21px] text-[#6e6e73]">
+              LuminaTech urunlerinle mukemmel uyum.
             </p>
           </div>
           
@@ -149,15 +161,21 @@ export default function Accessories() {
           <div className="hidden md:flex items-center gap-2">
             <button
               onClick={() => scroll("left")}
-              className="w-10 h-10 rounded-full bg-card hover:bg-muted transition-colors flex items-center justify-center"
+              className="w-9 h-9 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] transition-colors flex items-center justify-center"
+              aria-label="Geri"
             >
-              <Icon name="ChevronLeftIcon" size={20} className="text-foreground" />
+              <svg className="w-4 h-4" fill="none" stroke="#1d1d1f" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-10 h-10 rounded-full bg-card hover:bg-muted transition-colors flex items-center justify-center"
+              className="w-9 h-9 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] transition-colors flex items-center justify-center"
+              aria-label="Ileri"
             >
-              <Icon name="ChevronRightIcon" size={20} className="text-foreground" />
+              <svg className="w-4 h-4" fill="none" stroke="#1d1d1f" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
         </div>
@@ -165,7 +183,7 @@ export default function Accessories() {
         {/* Horizontal Scroll */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto snap-x-mandatory no-scrollbar pb-4"
+          className="flex gap-4 overflow-x-auto snap-x-mandatory no-scrollbar pb-4 -mx-4 px-4"
         >
           {accessories.map((accessory) => (
             <AccessoryCard key={accessory.id} accessory={accessory} />
@@ -176,10 +194,9 @@ export default function Accessories() {
         <div className="text-center mt-8">
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors font-medium"
+            className="text-[#0066cc] hover:underline text-[17px]"
           >
-            Tüm Aksesuarları Gör
-            <Icon name="ArrowRightIcon" size={18} />
+            Tum aksesuarlari gor &gt;
           </a>
         </div>
       </div>

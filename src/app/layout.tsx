@@ -1,20 +1,13 @@
 import React from "react";
 import type { Metadata, Viewport } from "next";
-import { Orbitron, Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../styles/tailwind.css";
 import { CartProvider } from "../context/CartContext";
 
-const orbitron = Orbitron({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-orbitron",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sf-pro",
   display: "swap",
 });
 
@@ -27,9 +20,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
-  title: "LuminaTech — Sınırlarını Zorla, Geleceği Yaşa",
+  title: "LuminaTech - Yenilikci Teknoloji Urunleri",
   description:
-    "LuminaTech ile akıllı saatler, kablosuz kulaklıklar ve hoparlörlerle gençlik enerjini teknolojiye dönüştür. Hızlı kargo, misafir ödeme.",
+    "LuminaTech ile akilli saatler, kablosuz kulakliklar ve hoparlörlerle hayatini kolaylastir. Ucretsiz kargo, 30 gun iade garantisi.",
   icons: {
     icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
   },
@@ -39,13 +32,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="tr"
-      className={`${orbitron.variable} ${manrope.variable} dark`}
-    >
-      <body className={manrope.className}>
+    <html lang="tr" className={`${inter.variable} bg-background`}>
+      <body className={`${inter.className} antialiased`}>
         <CartProvider>{children}</CartProvider>
-</body>
+      </body>
     </html>
   );
 }
