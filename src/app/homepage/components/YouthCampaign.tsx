@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import AppImage from "@/components/ui/AppImage";
 import { useCart } from "@/context/CartContext";
+import { useRouter } from "next/navigation";
 
 const youthProducts = [
 {
@@ -67,9 +68,11 @@ const perks = [
 
 function YouthProductCard({ product }: {product: (typeof youthProducts)[0];}) {
   const { addItem } = useCart();
+  const router = useRouter();
   const [added, setAdded] = useState(false);
 
-  const handleAdd = () => {
+  const handleAdd = (e: React.MouseEvent) => {
+    e.stopPropagation();
     addItem({
       id: product.id,
       name: product.name,
@@ -80,8 +83,14 @@ function YouthProductCard({ product }: {product: (typeof youthProducts)[0];}) {
     setTimeout(() => setAdded(false), 1500);
   };
 
+  // Map youth product ids to main product ids
+  const mainProductId = product.id.replace("-youth", "").replace("-se-youth", "-se");
+
   return (
-    <div className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+    <div
+      className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col cursor-pointer"
+      onClick={() => router.push(`/urun/${mainProductId}`)}
+    >
       {/* Gradient header */}
       <div className={`bg-gradient-to-br ${product.color} p-6 relative overflow-hidden`}>
         <span className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.12em] px-3 py-1 rounded-full">

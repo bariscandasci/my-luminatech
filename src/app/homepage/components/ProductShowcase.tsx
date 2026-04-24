@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import AppImage from "@/components/ui/AppImage";
 import { useCart } from "@/context/CartContext";
 
@@ -135,11 +136,13 @@ function ProductCard({
 
 }: {product: (typeof products)[0];variant?: "default" | "featured" | "wide";}) {
   const { addItem } = useCart();
+  const router = useRouter();
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [added, setAdded] = useState(false);
   const [showModels, setShowModels] = useState(false);
 
-  const handleAdd = () => {
+  const handleAdd = (e: React.MouseEvent) => {
+    e.stopPropagation();
     addItem({
       id: product.id,
       name: product.name,
@@ -150,9 +153,17 @@ function ProductCard({
     setTimeout(() => setAdded(false), 1500);
   };
 
+  const handleColorClick = (e: React.MouseEvent, color: (typeof product.colors)[0]) => {
+    e.stopPropagation();
+    setSelectedColor(color);
+  };
+
   if (variant === "wide") {
     return (
-      <div className="bg-[#f5f5f7] rounded-3xl overflow-hidden group relative">
+      <div
+        className="bg-[#f5f5f7] rounded-3xl overflow-hidden group relative cursor-pointer hover:shadow-xl transition-shadow duration-300"
+        onClick={() => router.push(`/urun/${product.id}`)}
+      >
         <div className="flex flex-col md:flex-row items-center gap-0">
           {/* Image side */}
           <div className="relative w-full md:w-1/2 aspect-square overflow-hidden bg-gradient-to-br from-[#f5f5f7] to-[#e8e8ed]">
@@ -210,7 +221,7 @@ function ProductCard({
               {product.colors.map((color) =>
               <button
                 key={color.name}
-                onClick={() => setSelectedColor(color)}
+                onClick={(e) => handleColorClick(e, color)}
                 className={`w-[16px] h-[16px] rounded-full transition-all duration-200 ${
                 selectedColor.name === color.name ?
                 "ring-2 ring-[#0071e3] ring-offset-2" :
@@ -235,12 +246,6 @@ function ProductCard({
 
                 {added ? "✓ Eklendi" : "Sepete Ekle"}
               </button>
-              <Link
-                href="#"
-                className="text-[#0066cc] hover:underline text-[13px] font-medium tracking-wide">
-
-                Daha fazla &rsaquo;
-              </Link>
             </div>
           </div>
         </div>
@@ -250,10 +255,11 @@ function ProductCard({
 
   return (
     <div
-      className={`rounded-3xl overflow-hidden group relative flex flex-col ${
+      className={`rounded-3xl overflow-hidden group relative flex flex-col cursor-pointer hover:shadow-xl transition-shadow duration-300 ${
       variant === "featured" ? "bg-[#1d1d1f] text-white" : "bg-[#f5f5f7] text-[#1d1d1f]"}`
-      }>
-
+      }
+      onClick={() => router.push(`/urun/${product.id}`)}
+    >
       {/* Image area */}
       <div
         className={`relative overflow-hidden flex items-center justify-center ${
@@ -335,7 +341,7 @@ function ProductCard({
           {product.colors.map((color) =>
           <button
             key={color.name}
-            onClick={() => setSelectedColor(color)}
+            onClick={(e) => handleColorClick(e, color)}
             className={`w-[13px] h-[13px] rounded-full transition-all duration-200 ${
             selectedColor.name === color.name ?
             "ring-2 ring-[#0071e3] ring-offset-2 ring-offset-transparent" :
@@ -355,7 +361,7 @@ function ProductCard({
         </p>
 
         {/* Actions */}
-        <div className="mt-auto space-y-2">
+        <div className="mt-auto">
           <button
             onClick={handleAdd}
             className={`w-full py-3 px-6 rounded-full text-[13px] font-semibold tracking-wide transition-all duration-300 active:scale-95 ${
@@ -366,14 +372,6 @@ function ProductCard({
 
             {added ? "✓ Eklendi" : "Sepete Ekle"}
           </button>
-          <Link
-            href="#"
-            className={`block text-center text-[12px] font-medium tracking-wide transition-colors ${
-            variant === "featured" ? "text-[#6ac4ff] hover:text-white" : "text-[#0066cc] hover:text-[#0071e3]"}`
-            }>
-
-            Daha fazla bilgi &rsaquo;
-          </Link>
         </div>
       </div>
     </div>);
@@ -390,7 +388,7 @@ export default function ProductShowcase() {
             Yeni ve popüler ürünler.
           </h2>
           <p className="text-[18px] text-[#6e6e73] font-light">
-            En yeni modelleri keşfet. İsmin üzerine gel, modelleri gör.
+            En yeni modelleri keşfet. Ürüne tıkla, detayları gör.
           </p>
         </div>
 
