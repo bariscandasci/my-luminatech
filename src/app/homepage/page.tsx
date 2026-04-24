@@ -6,6 +6,7 @@ import ProductShowcase from "./components/ProductShowcase";
 import SpecialOffers from "./components/SpecialOffers";
 import Accessories from "./components/Accessories";
 import CampaignSection from "./components/CampaignSection";
+import YouthCampaign from "./components/YouthCampaign";
 import AIStyleQuiz from "./components/AIStyleQuiz";
 import CTABanner from "./components/CTABanner";
 
@@ -26,6 +27,11 @@ export default function HomepagePage() {
       {/* Accessories */}
       <section id="accessories">
         <Accessories />
+      </section>
+      
+      {/* Gençlere Özel Kampanya */}
+      <section id="gencler">
+        <YouthCampaign />
       </section>
       
       {/* Why LuminaTech - Features */}

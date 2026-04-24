@@ -36,10 +36,10 @@ export default function HeroSection() {
             <AppImage
               src="https://img.rocket.new/generatedImages/rocket_gen_img_11fdfb7de-1775103922127.png"
               alt="Aura Wristband Pro"
-              width={980}
-              height={550}
+              width={600}
+              height={400}
               priority
-              className="w-full h-auto" />
+              className="w-full h-auto max-h-[380px] object-contain" />
 
           </div>
         </div>
@@ -75,9 +75,9 @@ export default function HeroSection() {
             <AppImage
               src="https://images.unsplash.com/photo-1593699086688-ddcfdfd6f006"
               alt="Sonic Buds Pro"
-              width={800}
-              height={450}
-              className="w-full h-auto" />
+              width={560}
+              height={360}
+              className="w-full h-auto max-h-[320px] object-contain" />
 
           </div>
         </div>
@@ -112,9 +112,9 @@ export default function HeroSection() {
               <AppImage
                 src="https://images.unsplash.com/photo-1624089735327-ae3727e64a09"
                 alt="Nova Speaker Max"
-                width={400}
-                height={300}
-                className="w-full h-auto" />
+                width={320}
+                height={240}
+                className="w-full h-auto max-h-[220px] object-contain" />
 
             </div>
           </div>
@@ -150,9 +150,9 @@ export default function HeroSection() {
               <AppImage
                 src="https://img.rocket.new/generatedImages/rocket_gen_img_11fdfb7de-1775103922127.png"
                 alt="Aura Wristband SE"
-                width={400}
-                height={300}
-                className="w-full h-auto" />
+                width={320}
+                height={240}
+                className="w-full h-auto max-h-[220px] object-contain" />
 
             </div>
           </div>
